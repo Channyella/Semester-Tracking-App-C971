@@ -9,37 +9,38 @@
 
 
     <TabBar>
-        <Tab Title="Terms">
-            <ShellContent
-          Title="Home"
-          Icon=" "
-          ContentTemplate="{DataTemplate local:MainPage}"
-          Route="MainPage" />
-
-            <ShellContent
-          Title="Terms"
-          Icon=" "
-          ContentTemplate="{DataTemplate local:Terms}"
-          Route="Terms"/>
-
-            <ShellContent
-            Title="Settings"
-             Icon=" "
-             ContentTemplate="{DataTemplate local:Settings}"
-            Route="Settings"/>
-        </Tab>
-
         <ShellContent
           Title="Home"
           Icon="dotnet_bot.png"
           ContentTemplate="{DataTemplate local:MainPage}"
           Route="MainPage" />
 
-        <ShellContent
-          Title="Terms"
-          Icon="dotnet_bot.png "
+        <Tab Title="Terms"
+             Icon="dotnet_bot.png">
+            <ShellContent
+          Title="Term 1"
+          Icon=" "
+          ContentTemplate="{DataTemplate local:MainPage}"
+          Route="MainPage" />
+
+            <ShellContent
+          Title="Term 2"
+          Icon=" "
           ContentTemplate="{DataTemplate local:Terms}"
           Route="Terms"/>
+
+            <ShellContent
+            Title="Term 3"
+             Icon=" "
+             ContentTemplate="{DataTemplate local:Settings}"
+            Route="Settings"/>
+        </Tab>
+
+        <ShellContent
+          Title="Instructors"
+          Icon="dotnet_bot.png "
+          ContentTemplate="{DataTemplate local:Instructors}"
+          Route="Instructors"/>
 
         <ShellContent
             Title="Settings"
