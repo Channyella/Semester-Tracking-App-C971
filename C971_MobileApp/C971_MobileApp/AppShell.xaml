@@ -4,11 +4,49 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:C971_MobileApp"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="True" >
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+
+    <TabBar>
+        <Tab Title="Terms">
+            <ShellContent
+          Title="Home"
+          Icon=" "
+          ContentTemplate="{DataTemplate local:MainPage}"
+          Route="MainPage" />
+
+            <ShellContent
+          Title="Terms"
+          Icon=" "
+          ContentTemplate="{DataTemplate local:Terms}"
+          Route="Terms"/>
+
+            <ShellContent
+            Title="Settings"
+             Icon=" "
+             ContentTemplate="{DataTemplate local:Settings}"
+            Route="Settings"/>
+        </Tab>
+
+        <ShellContent
+          Title="Home"
+          Icon="dotnet_bot.png"
+          ContentTemplate="{DataTemplate local:MainPage}"
+          Route="MainPage" />
+
+        <ShellContent
+          Title="Terms"
+          Icon="dotnet_bot.png "
+          ContentTemplate="{DataTemplate local:Terms}"
+          Route="Terms"/>
+
+        <ShellContent
+            Title="Settings"
+             Icon="dotnet_bot.png "
+             ContentTemplate="{DataTemplate local:Settings}"
+            Route="Settings"/>
+
+    </TabBar>
 
 </Shell>
