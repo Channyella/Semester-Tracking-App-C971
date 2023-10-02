@@ -10,15 +10,20 @@
         <CollectionView
             x:Name="InstructorCollection"
             ItemsSource="{Binding InstructorData}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="1"
+                                 VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid WidthRequest="300" 
+                    <Grid HorizontalOptions="FillAndExpand"
                           x:Name="InstructorItem"
-                          >
+                          Padding="10">
 
                         <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="250"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -26,9 +31,10 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <Label Text="Photo"
-                               Grid.Column="0"
-                               Grid.RowSpan="3"/>
+                        <Image Grid.RowSpan="3"
+                               Source="dotnet_bot.svg"
+                               Aspect="AspectFill"
+                               Margin="10"/>
                         <Label Text="{Binding Name}" 
                                FontSize="Medium"
                                Grid.Row="0" 
@@ -50,7 +56,8 @@
 
         <Button Text="Add Instructor"
                 WidthRequest="150"
-                HorizontalOptions="Start"/>
+                HorizontalOptions="Start"
+                Margin="10"/>
 
     </VerticalStackLayout>
 </ContentPage>
