@@ -19,7 +19,8 @@
                 <DataTemplate>
                     <Grid HorizontalOptions="FillAndExpand"
                           x:Name="InstructorItem"
-                          Padding="10">
+                          Padding="10"
+                          BackgroundColor="AliceBlue">
 
                         <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
@@ -38,8 +39,7 @@
                         <Label Text="{Binding Name}" 
                                FontSize="Medium"
                                Grid.Row="0" 
-                               Grid.Column="1"
-                               BackgroundColor="AliceBlue"/>
+                               Grid.Column="1"/>
                         <Label Text="{Binding Email}"                               
                                FontSize="Medium"
                                Grid.Row="1" 
@@ -57,7 +57,8 @@
         <Button Text="Add Instructor"
                 WidthRequest="150"
                 HorizontalOptions="Start"
-                Margin="10"/>
+                Margin="10"
+                Clicked="AddInstructor"/>
 
     </VerticalStackLayout>
 </ContentPage>

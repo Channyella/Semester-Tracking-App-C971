@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using C971_MobileApp.Data;
 
 namespace C971_MobileApp
 {
@@ -20,6 +21,9 @@ namespace C971_MobileApp
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "instructor.db");
+
+            builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<InstructorData>(s, dbPath));
 
             return builder.Build();
         }

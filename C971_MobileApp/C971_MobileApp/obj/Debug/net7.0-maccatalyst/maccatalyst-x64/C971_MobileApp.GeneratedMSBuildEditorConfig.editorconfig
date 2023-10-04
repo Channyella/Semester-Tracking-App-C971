@@ -10,6 +10,12 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = C971_MobileApp
 build_property.ProjectDir = C:\Users\admin\Desktop\WGU\C971\C971_MobileApp\C971_MobileApp\
 
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddInstructor.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddInstructor.xaml
+build_metadata.AdditionalFiles.TargetPath = AddInstructor.xaml
+build_metadata.AdditionalFiles.RelativePath = AddInstructor.xaml
+
 [C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.App.xaml
