@@ -12,11 +12,6 @@ public partial class Instructors : ContentPage
 	public Instructors()
 	{
 		InitializeComponent();
-
-		foreach(Instructor instructor in App.InstructorData.GetInstructors())
-		{
-			InstructorData.Add(instructor);
-		}
 	}
 
 	public void AddInstructor(object sender, EventArgs e)
@@ -25,4 +20,13 @@ public partial class Instructors : ContentPage
 
 		Navigation.PushAsync(new AddInstructor());
 	}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        List<Instructor> instructorList = App.InstructorData.GetInstructors();
+        foreach (Instructor instructor in instructorList)
+        {
+            InstructorData.Add(instructor);
+        }
+    }
 }

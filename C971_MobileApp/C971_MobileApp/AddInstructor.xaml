@@ -2,28 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971_MobileApp.AddInstructor"
-             Title="AddInstructor">
+             Title="AddInstructor"
+             x:Name="AddInstructorXaml"
+             BindingContext="{x:Reference AddInstructorXaml}">
+    
     <VerticalStackLayout>
 
         <Entry x:Name="Name"
-               Placeholder="Enter Name"
-               TextChanged="OnEntryTextChanged"
-               Completed="OnEntryCompleted"/>
+               Placeholder="Enter Name"/>
         <Entry x:Name="Email"
-               Placeholder="Enter E-mail"
-               TextChanged="OnEntryTextChanged"
-               Completed="OnEntryCompleted"/>
+               Placeholder="Enter E-mail"/>
         <Entry x:Name="PhoneNumber"
-               Placeholder="Enter Phone Number"
-               TextChanged="OnEntryTextChanged"
-               Completed="OnEntryCompleted"/>
-
+               Placeholder="Enter Phone Number"/>
         <Picker x:Name="ClassPicker"
                 Title="Select Classes"/>
         
-        <Button x:Name="AddInstructorButton"
+        <Button x:Name="AddInstructorBtn"
                 Text="Add Instructor"
-                Clicked="AddInstructor"
+                Clicked="AddInstructorButton"
                 WidthRequest="150"
                 Margin="10"/>
 

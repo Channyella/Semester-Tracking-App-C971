@@ -9,7 +9,8 @@
     <VerticalStackLayout>
         <CollectionView
             x:Name="InstructorCollection"
-            ItemsSource="{Binding InstructorData}">
+            ItemsSource="{Binding InstructorData}"
+            HeightRequest="635">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
                                  Span="1"
@@ -23,8 +24,8 @@
                           BackgroundColor="AliceBlue">
 
                         <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="250"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -48,13 +49,13 @@
                                FontSize="Medium"
                                Grid.Row="2"
                                Grid.Column="1"/>
-    
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
         <Button Text="Add Instructor"
+                x:Name="addButton"
                 WidthRequest="150"
                 HorizontalOptions="Start"
                 Margin="10"
