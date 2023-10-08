@@ -10,7 +10,8 @@
         <CollectionView
             x:Name="InstructorCollection"
             ItemsSource="{Binding InstructorData}"
-            HeightRequest="635">
+            HeightRequest="625">
+
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
                                  Span="1"
@@ -25,30 +26,51 @@
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="125"/>
+                            <ColumnDefinition Width="125"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <Image Grid.RowSpan="3"
+                        <Image Grid.RowSpan="4"
                                Source="dotnet_bot.svg"
                                Aspect="AspectFill"
                                Margin="10"/>
                         <Label Text="{Binding Name}" 
-                               FontSize="Medium"
+                               FontSize="Default"
                                Grid.Row="0" 
-                               Grid.Column="1"/>
+                               Grid.Column="1"
+                               Grid.ColumnSpan="2"/>
                         <Label Text="{Binding Email}"                               
-                               FontSize="Medium"
+                               FontSize="Default"
                                Grid.Row="1" 
-                               Grid.Column="1"/>
+                               Grid.Column="1"
+                               Grid.ColumnSpan="2"/>
                         <Label Text="{Binding PhoneNumber}"
-                               FontSize="Medium"
+                               FontSize="Default"
                                Grid.Row="2"
-                               Grid.Column="1"/>
+                               Grid.Column="1"
+                               Grid.ColumnSpan="2"/>
+                        <Button Text="Edit"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                FontSize="Default"
+                                Padding="10"
+                                Margin="10"
+                                BindingContext="{Binding Id}"
+                                Clicked="EditInstructor"/>
+                        <Button Text="Delete"
+                                Grid.Row="3"
+                                Grid.Column="2"
+                                FontSize="Default"
+                                Padding="10"
+                                Margin="10"
+                                BindingContext="{Binding Id}"
+                                Clicked="DeleteInstructor"/>
 
                     </Grid>
                 </DataTemplate>

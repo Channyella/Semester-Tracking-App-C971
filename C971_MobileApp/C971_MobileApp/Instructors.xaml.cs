@@ -7,6 +7,7 @@ namespace C971_MobileApp;
 
 public partial class Instructors : ContentPage
 {
+	List<Instructor> instructorList = App.InstructorData.GetInstructors();
 	public ObservableCollection<Instructor> InstructorData { get; set; } = new();
 
 	public Instructors()
@@ -14,15 +15,40 @@ public partial class Instructors : ContentPage
 		InitializeComponent();
 	}
 
+	// Sends user to the Add Instructor page to fill out information
 	public void AddInstructor(object sender, EventArgs e)
 	{
 		Button button = (Button)sender;
 
 		Navigation.PushAsync(new AddInstructor());
 	}
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
+	// Deletes user from the SQLite Database
+	public void DeleteInstructor(object sender, EventArgs e)
+	{
+		Button button = (Button)sender;
+		App.InstructorData.DeleteInstructor((int)button.BindingContext);
+		RefreshInstructors();
+	}
+
+	// Sends user to the Edit Instructor Page but also passes the Id.
+	public void EditInstructor(object sender, EventArgs e)
+	{
+		Button button = (Button)sender;
+
+		int buttonId = (int)button.BindingContext;
+
+		Navigation.PushAsync(new EditInstructor(buttonId));
+	}
+
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		RefreshInstructors();
+	}
+
+	private void RefreshInstructors()
+	{
+		InstructorData.Clear();
         List<Instructor> instructorList = App.InstructorData.GetInstructors();
         foreach (Instructor instructor in instructorList)
         {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.EditInstructor"
+             Title="EditInstructor"
+             x:Name="EditInstructorXaml"
+             BindingContext="{x:Reference EditInstructorXaml}">
+    
+    <VerticalStackLayout>
+        <Entry x:Name="Name"
+               Placeholder="Enter Name"/>
+        <Entry x:Name="Email"
+               Placeholder="Enter E-mail"/>
+        <Entry x:Name="PhoneNumber"
+               Placeholder="Enter Phone Number"/>
+        <Picker x:Name="ClassPicker"
+                Title="Select Classes"/>
+
+        <Button x:Name="EditInstructorBtn"
+                Text="Edit Instructor"
+                Clicked="EditInstructorButton"
+                WidthRequest="150"
+                Margin="10"/>
+    </VerticalStackLayout>
+</ContentPage>

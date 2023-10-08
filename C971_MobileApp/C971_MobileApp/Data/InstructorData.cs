@@ -32,6 +32,11 @@ namespace C971_MobileApp.Data
             Init();
             return conn.Table<Instructor>().ToList();
         }
+        public Instructor GetInstructorById(int id)
+        {
+            Init();
+            return conn.FindWithQuery<Instructor>("SELECT * FROM instructor WHERE Id = ?", id);
+        }
         public void AddInstructor(Instructor instructor)
         {
             conn = new SQLiteConnection(this.dbPath);
@@ -40,10 +45,12 @@ namespace C971_MobileApp.Data
         public void DeleteInstructor(int id)
         {
             conn = new SQLiteConnection(this.dbPath);
-            conn.Delete(new { Id = id});
+            conn.Delete(new Instructor{ Id = id});
         }
-        //instructorsList[0] = new Instructor("John Doe", "john.doe@wgu.edu", "555-555-5555");
-        //instructorsList[1] = new Instructor("Jane Poe", "jpoe@wgu.edu", "555-555-5556");
-        //instructorsList[2] = new Instructor("Felix Melendez", "felixm@wgu.edu", "555-555-5557");
+        public void EditInstructor(Instructor instructor)
+        {
+            conn = new SQLiteConnection(this.dbPath);
+            conn.Update(instructor);
+        }
     }
 }

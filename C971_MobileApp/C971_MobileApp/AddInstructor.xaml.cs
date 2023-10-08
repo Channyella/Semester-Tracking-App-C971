@@ -7,17 +7,22 @@ public partial class AddInstructor : ContentPage
 		InitializeComponent();
 	}
 
-	public void AddInstructorButton(object sender, EventArgs e)
+	public async void AddInstructorButton(object sender, EventArgs e)
 	{
-		App.InstructorData.AddInstructor(new Instructor
+		if (string.IsNullOrWhiteSpace(Name.Text) || string.IsNullOrWhiteSpace(Email.Text) || string.IsNullOrWhiteSpace(PhoneNumber.Text))
 		{
-			Name = Name.Text,
-			Email = Email.Text,
-			PhoneNumber = PhoneNumber.Text,
-		});
-        Button button = (Button)sender;
-
-        Navigation.PushAsync(new Instructors());
+		await DisplayAlert("Invalid", "There are blank fields. Please fill in before continuing.", "Cancel");
+		}
+		else
+		{
+			App.InstructorData.AddInstructor(new Instructor
+			{
+				Name = Name.Text,
+				Email = Email.Text,
+				PhoneNumber = PhoneNumber.Text,
+			});
+        }
+        await Navigation.PushAsync(new Instructors());
     }
 	
 }
