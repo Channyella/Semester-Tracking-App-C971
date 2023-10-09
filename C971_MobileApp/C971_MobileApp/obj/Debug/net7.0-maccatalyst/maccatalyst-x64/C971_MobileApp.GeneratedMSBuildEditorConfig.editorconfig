@@ -46,12 +46,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.MainPage.xa
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/NewPage1.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.NewPage1.xaml
-build_metadata.AdditionalFiles.TargetPath = NewPage1.xaml
-build_metadata.AdditionalFiles.RelativePath = NewPage1.xaml
-
 [C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Resources.Styles.Colors.xaml

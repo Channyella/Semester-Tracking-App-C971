@@ -12,7 +12,8 @@ namespace C971_MobileApp.Data
     {
         string dbPath;
         private SQLiteConnection conn;
-        public Instructor[] instructorsList = new Instructor[3];
+        public List<Instructor> instructorsList = new List<Instructor>();
+        //public Instructor[] instructorsList = new Instructor[3];
 
         public InstructorData(string dbPath) {
             this.dbPath = dbPath;
