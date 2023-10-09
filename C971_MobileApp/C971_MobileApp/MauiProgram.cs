@@ -23,10 +23,8 @@ namespace C971_MobileApp
 #endif
             string dbPathInstructor = Path.Combine(FileSystem.AppDataDirectory, "instructor.db");
             string dbPathCourse = Path.Combine(FileSystem.AppDataDirectory, "course.db");
-            string dbPathCourseAndInstructors = Path.Combine(FileSystem.AppDataDirectory, "courseAndInstructors.db");
             string dbPathAssessment = Path.Combine(FileSystem.AppDataDirectory, "assessment.db");
             string dbPathTerm = Path.Combine(FileSystem.AppDataDirectory, "term.db");
-            string dbPathTermAndCourses = Path.Combine(FileSystem.AppDataDirectory, "termAndCourses.db");
 
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<InstructorData>(s, dbPathInstructor));
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<CourseData>(s, dbPathCourse));

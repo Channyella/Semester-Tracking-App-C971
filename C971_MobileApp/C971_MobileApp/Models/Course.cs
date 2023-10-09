@@ -19,13 +19,15 @@ namespace C971_MobileApp.Models
             public bool Status { get; set; }
             public DateTime StartDate { get; set; }
             public DateTime EndDate { get; set; }
-            public string CourseInstructor { get; set; }
+            public int InstructorId { get; set; }
             public string Notes { get; set; }
+            public int Assessment1 { get; set; }
+            public int Assessment2 { get; set; }
 
             public Courses()
             { }
 
-            public Courses(int id, string name, string description, bool status, DateTime startDate, DateTime endDate, string courseInstructor, string notes)
+            public Courses(int id, string name, string description, bool status, DateTime startDate, DateTime endDate, int instructorId, string notes)
             {
                 Id = id;
                 Name = name;
@@ -33,7 +35,7 @@ namespace C971_MobileApp.Models
                 Status = status;
                 StartDate = startDate;
                 EndDate = endDate;
-                CourseInstructor = courseInstructor;
+                InstructorId = instructorId;
                 Notes = notes;
             }
         }
