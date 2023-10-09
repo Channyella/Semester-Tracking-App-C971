@@ -9,7 +9,6 @@ using static C971_MobileApp.Models.Course;
 
 namespace C971_MobileApp.Data
 {
-
     public class CourseData
     {
         string dbPath;

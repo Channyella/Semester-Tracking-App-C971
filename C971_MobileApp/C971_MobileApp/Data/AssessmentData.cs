@@ -8,7 +8,7 @@ using SQLite;
 
 namespace C971_MobileApp.Data
 {
-    class AssessmentData
+    public class AssessmentData
     {
         string dbPath;
         private SQLiteConnection conn;

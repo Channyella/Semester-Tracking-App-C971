@@ -8,7 +8,7 @@ using SQLite;
 
 namespace C971_MobileApp.Data
 {
-    internal class TermData
+    public class TermData
     {
         string dbPath;
         private SQLiteConnection conn;
