@@ -11,7 +11,7 @@ namespace C971_MobileApp.Models
     public class TermAndCourses
     {
         public int TermId { get; set; }
-        public int Courses { get; set; }
+        public int CourseId { get; set; }
         public bool Active { get; set; }
     }
 }

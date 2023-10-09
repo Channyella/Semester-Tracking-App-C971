@@ -12,6 +12,6 @@ namespace C971_MobileApp.Models
     public class CoursesAndInstructors
     {
         public int InstructorId { get; set; }
-        public string CourseId { get; set; }
+        public int CourseId { get; set; }
     }
 }

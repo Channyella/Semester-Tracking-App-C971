@@ -28,7 +28,7 @@ namespace C971_MobileApp.Data
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<Term>();
         }
-        public List<Term> GetAlTerms()
+        public List<Term> GetAllTerms()
         {
             Init();
             return conn.Table<Term>().ToList();
