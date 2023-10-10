@@ -14,6 +14,8 @@ namespace C971_MobileApp.Models
         [PrimaryKey, AutoIncrement, Column("Id")]
         public int Id { get; set; }
         public string Name { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public int Course1 { get; set; }
         public int Course2 { get; set; }
         public int Course3 { get; set; }
@@ -26,7 +28,7 @@ namespace C971_MobileApp.Models
 
         }
        
-        public Term(int id, string name, int course1, int course2, int course3, int course4, int course5, int course6)
+        public Term(int id, string name, int course1, int course2, int course3, int course4, int course5, int course6, DateTime startDate, DateTime endDate)
         {
             Id = id;
             Name = name;
@@ -36,6 +38,8 @@ namespace C971_MobileApp.Models
             Course4 = course4;
             Course5 = course5;
             Course6 = course6;
+            StartDate = startDate;
+            EndDate = endDate;
         }
     }
 }

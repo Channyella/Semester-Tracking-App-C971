@@ -4,6 +4,8 @@
              x:Class="C971_MobileApp.CoursePage"
              Title="Course Page">
     <VerticalStackLayout>
-
+        <DatePicker MinimumDate="01/01/2023"
+                    MaximumDate="01/01/2099"
+                    Date="10/09/2023"/>
     </VerticalStackLayout>
 </ContentPage>

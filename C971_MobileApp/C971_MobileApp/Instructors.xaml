@@ -27,9 +27,11 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="125"/>
-                            <ColumnDefinition Width="125"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -37,38 +39,49 @@
                         </Grid.RowDefinitions>
 
                         <Image Grid.RowSpan="4"
-                               Source="dotnet_bot.svg"
-                               Aspect="AspectFill"
+                               Source="person_icon.svg"
+                               Aspect="AspectFit"                          
                                Margin="10"/>
                         <Label Text="{Binding Name}" 
-                               FontSize="Default"
+                               FontSize="Medium"
                                Grid.Row="0" 
                                Grid.Column="1"
-                               Grid.ColumnSpan="2"/>
+                               Grid.ColumnSpan="3"/>
                         <Label Text="{Binding Email}"                               
-                               FontSize="Default"
+                               FontSize="Medium"
                                Grid.Row="1" 
                                Grid.Column="1"
-                               Grid.ColumnSpan="2"/>
+                               Grid.ColumnSpan="3"/>
                         <Label Text="{Binding PhoneNumber}"
-                               FontSize="Default"
+                               FontSize="Medium"
                                Grid.Row="2"
                                Grid.Column="1"
-                               Grid.ColumnSpan="2"/>
-                        <Button Text="Edit"
-                                Grid.Row="3"
+                               Grid.ColumnSpan="3"/>
+                        <Button Text="Add Class"
                                 Grid.Column="1"
-                                FontSize="Default"
-                                Padding="10"
-                                Margin="10"
-                                BindingContext="{Binding Id}"
-                                Clicked="EditInstructor"/>
-                        <Button Text="Delete"
+                                Grid.Row="3"
+                                HeightRequest="45"
+                                FontSize="Medium"
+                                Clicked="AddClass"
+                                BindingContext="{Binding Id}"/>
+                        <ImageButton Source="edit.svg"                                
                                 Grid.Row="3"
                                 Grid.Column="2"
-                                FontSize="Default"
-                                Padding="10"
-                                Margin="10"
+                                Aspect="AspectFit"
+                                     HeightRequest="75"
+                                     WidthRequest="75"
+                                Padding="10, 0, 10, 0"
+                                Margin="10, 0, 10, 0"
+                                BindingContext="{Binding Id}"
+                                Clicked="EditInstructor"/>
+                        <ImageButton Source="delete.svg"
+                                Grid.Row="3"
+                                Grid.Column="3"
+                                Padding="10, 0, 10, 0"
+                                Margin="10, 0, 10, 0"
+                                Aspect="AspectFill"
+                                    HeightRequest="75"
+                                    WidthRequest="75"
                                 BindingContext="{Binding Id}"
                                 Clicked="DeleteInstructor"/>
 
@@ -78,9 +91,10 @@
         </CollectionView>
         <Button Text="Add Instructor"
                 x:Name="addButton"
-                WidthRequest="150"
+                WidthRequest="175"
                 HorizontalOptions="Start"
                 Margin="10"
+                FontSize="Medium"
                 Clicked="AddInstructor"/>
 
     </VerticalStackLayout>

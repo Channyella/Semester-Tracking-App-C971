@@ -2,8 +2,57 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971_MobileApp.Terms"
-             Title="Terms">
+             Title="Degree Plan"
+             x:Name="TermsXaml"
+             BindingContext="{x:Reference TermsXaml}">
+    
     <VerticalStackLayout>
+        <CollectionView
+            x:Name="TermCollection"
+            ItemsSource="{Binding TermData}"
+            HeightRequest="625">
 
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="1"
+                                 VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="FillAndExpand"
+                          x:Name="TermItem"
+                          Padding="10"
+                          BackgroundColor="AliceBlue">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.RowSpan="6"
+                               FontSize="Large"
+                               Text="{Binding Name}"/>
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{Binding course1}"/>
+                        <DatePicker Grid.Row="1"
+                                    Grid.Column="1"/>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Add Term"
+                x:Name="addTermButton"
+                WidthRequest="150"
+                HorizontalOptions="Start"
+                Margin="10"/>
     </VerticalStackLayout>
 </ContentPage>

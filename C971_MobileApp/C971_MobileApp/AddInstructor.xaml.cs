@@ -11,7 +11,8 @@ public partial class AddInstructor : ContentPage
 	{
 		if (string.IsNullOrWhiteSpace(Name.Text) || string.IsNullOrWhiteSpace(Email.Text) || string.IsNullOrWhiteSpace(PhoneNumber.Text))
 		{
-		await DisplayAlert("Invalid", "There are blank fields. Please fill in before continuing.", "Cancel");
+		await DisplayAlert("Invalid", "There are blank fields. Please fill in before continuing.", "Okay");
+			return;
 		}
 		else
 		{

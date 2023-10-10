@@ -18,14 +18,12 @@ public partial class Instructors : ContentPage
 	// Sends user to the Add Instructor page to fill out information
 	public void AddInstructor(object sender, EventArgs e)
 	{
-		Button button = (Button)sender;
-
 		Navigation.PushAsync(new AddInstructor());
 	}
 	// Deletes user from the SQLite Database
 	public void DeleteInstructor(object sender, EventArgs e)
 	{
-		Button button = (Button)sender;
+		ImageButton button = (ImageButton)sender;
 		App.InstructorData.DeleteInstructor((int)button.BindingContext);
 		RefreshInstructors();
 	}
@@ -33,7 +31,7 @@ public partial class Instructors : ContentPage
 	// Sends user to the Edit Instructor Page but also passes the Id.
 	public void EditInstructor(object sender, EventArgs e)
 	{
-		Button button = (Button)sender;
+		ImageButton button = (ImageButton)sender;
 
 		int buttonId = (int)button.BindingContext;
 
@@ -54,5 +52,14 @@ public partial class Instructors : ContentPage
         {
             InstructorData.Add(instructor);
         }
+    }
+
+    private void AddClass(object sender, EventArgs e)
+    {
+		Button button = (Button)sender;
+
+        int buttonId = (int)button.BindingContext;
+
+        Navigation.PushAsync(new AddCourse(buttonId));
     }
 }
