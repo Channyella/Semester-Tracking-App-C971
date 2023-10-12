@@ -8,9 +8,6 @@
     <DefaultDevice>pixel_5_-_api_33</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="AddCourse.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="AddInstructor.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -21,6 +18,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="CoursePage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="EditCourse.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="EditInstructor.xaml">
@@ -42,6 +42,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Resources\Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="ViewInstructorCourses.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

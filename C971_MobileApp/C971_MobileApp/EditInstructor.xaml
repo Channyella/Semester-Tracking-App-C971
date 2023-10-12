@@ -13,8 +13,6 @@
                Placeholder="Enter E-mail"/>
         <Entry x:Name="PhoneNumber"
                Placeholder="Enter Phone Number"/>
-        <Picker x:Name="ClassPicker"
-                Title="Select Classes"/>
 
         <Button x:Name="EditInstructorBtn"
                 Text="Edit Instructor"

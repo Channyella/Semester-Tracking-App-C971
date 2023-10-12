@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.ViewInstructorCourses"
+             Title="Instructor's Courses"
+             x:Name="ViewInstructorCoursesXaml"
+             BindingContext="{x:Reference ViewInstructorCoursesXaml}">
+
+    <VerticalStackLayout>
+        <CollectionView x:Name="InstructorCollection"
+                        ItemsSource="{Binding CourseData}"
+                        HeightRequest="625">
+            <CollectionView.Header>
+                <Label Text="{Binding Instructor.Name}"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"/>
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="1"
+                                 VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="FillAndExpand"
+                          x:Name="InstructorItem"
+                          Padding="10"
+                          BackgroundColor="AliceBlue">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="{Binding Name}" 
+                               FontSize="Medium"
+                               Grid.Row="0" 
+                               Grid.Column="0"
+                               Grid.ColumnSpan="4"
+                               Margin="0,0,0,10"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding StartDate, StringFormat='{0:d}'}"
+                               FontSize="Medium"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="--"
+                               FontSize="Medium"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               HorizontalTextAlignment="Center"
+                               Margin="20,0,0,0"/>
+                        <Label Text="{Binding EndDate, StringFormat='{0:d}'}"
+                               FontSize="Medium"
+                               Grid.Row="1"
+                               Grid.Column="2"
+                               Grid.ColumnSpan="2"/>
+                        <Button Text="View Details"
+                                Grid.Column="0"
+                                Grid.Row="2"
+                                HeightRequest="45"
+                                WidthRequest="135"
+                                Margin="10,0,10,0"
+                                FontSize="Medium"
+                                Clicked="ViewCourse"
+                                BindingContext="{Binding Id}"/>
+                        <ImageButton Source="edit.svg"                                
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                    Aspect="AspectFit"
+                                    HeightRequest="75"
+                                    WidthRequest="75"
+                                    Padding="10, 0, 10, 0"
+                                    Margin="40, 0, 10, 0"
+                                    BindingContext="{Binding Id}"
+                                    Clicked="EditCourse"/>
+                        <ImageButton Source="delete.svg"
+                                    Grid.Row="2"
+                                    Grid.Column="3"
+                                    Padding="10, 10, 10, 10"
+                                    Margin="10, 0, 10, 0"
+                                    Aspect="AspectFill"
+                                    HeightRequest="75"
+                                    WidthRequest="75"
+                                    BindingContext="{Binding Id}"
+                                    Clicked="DeleteCourse"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Add Course"
+                x:Name="addButton"
+                BindingContext="{Binding InstructorId}"
+                WidthRequest="175"
+                HorizontalOptions="Start"
+                Margin="10"
+                FontSize="Medium"
+                Clicked="AddCourse"/>
+    </VerticalStackLayout>
+</ContentPage>

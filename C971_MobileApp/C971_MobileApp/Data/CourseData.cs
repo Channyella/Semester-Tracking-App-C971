@@ -13,7 +13,7 @@ namespace C971_MobileApp.Data
     {
         string dbPath;
         private SQLiteConnection conn;
-        public List<Courses> courseList = new List<Courses>();
+        public List<Course> courseList = new List<Course>();
 
         public CourseData()
         {
@@ -37,20 +37,26 @@ namespace C971_MobileApp.Data
             Init();
             return conn.FindWithQuery<Course>("SELECT * FROM course WHERE Id = ?", id);
         }
-        public void AddCourse(Course course)
+        public Course AddCourse(Course course)
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Insert(course);
+            return course;
         }
         public void DeleteCourse(int id)
         {
             conn = new SQLiteConnection(this.dbPath);
-            conn.Delete(new Courses { Id = id });
+            conn.Delete(new Course { Id = id });
         }
         public void EditCourse(Course course)
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Update(course);
+        }
+        public List<Course> GetCoursesByInstructorId(int id)
+        {
+            Init();
+            return conn.Query<Course>("SELECT * FROM course WHERE InstructorId = ?", id);
         }
     }
 }

@@ -2,12 +2,12 @@ using C971_MobileApp.Models;
 using C971_MobileApp.Data;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
+using static C971_MobileApp.Models.Course;
 
 namespace C971_MobileApp;
 
 public partial class Instructors : ContentPage
 {
-	List<Instructor> instructorList = App.InstructorData.GetInstructors();
 	public ObservableCollection<Instructor> InstructorData { get; set; } = new();
 
 	public Instructors()
@@ -37,8 +37,22 @@ public partial class Instructors : ContentPage
 
 		Navigation.PushAsync(new EditInstructor(buttonId));
 	}
+    public void EditCourse(object sender, EventArgs e)
+    {
+        ImageButton button = (ImageButton)sender;
 
-	protected override void OnAppearing()
+        int buttonId = (int)button.BindingContext;
+
+        Navigation.PushAsync(new EditCourse(buttonId));
+    }
+		public void DeleteCourse(object sender, EventArgs e)
+    {
+        ImageButton button = (ImageButton)sender;
+        App.CourseData.DeleteCourse((int)button.BindingContext);
+        RefreshInstructors();
+    }
+
+    protected override void OnAppearing()
 	{
 		base.OnAppearing();
 		RefreshInstructors();
@@ -54,12 +68,12 @@ public partial class Instructors : ContentPage
         }
     }
 
-    private void AddClass(object sender, EventArgs e)
+    private void ViewClass(object sender, EventArgs e)
     {
 		Button button = (Button)sender;
 
         int buttonId = (int)button.BindingContext;
 
-        Navigation.PushAsync(new AddCourse(buttonId));
+        Navigation.PushAsync(new ViewInstructorCourses(buttonId));
     }
 }

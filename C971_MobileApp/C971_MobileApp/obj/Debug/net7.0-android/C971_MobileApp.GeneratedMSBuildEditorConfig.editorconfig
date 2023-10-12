@@ -14,12 +14,6 @@ build_property.IncludeAllContentForSelfExtract =
 build_property.RootNamespace = C971_MobileApp
 build_property.ProjectDir = C:\Users\admin\Desktop\WGU\C971\C971_MobileApp\C971_MobileApp\
 
-[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddCourse.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddCourse.xaml
-build_metadata.AdditionalFiles.TargetPath = AddCourse.xaml
-build_metadata.AdditionalFiles.RelativePath = AddCourse.xaml
-
 [C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddInstructor.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddInstructor.xaml
@@ -43,6 +37,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.CoursePage.xaml
 build_metadata.AdditionalFiles.TargetPath = CoursePage.xaml
 build_metadata.AdditionalFiles.RelativePath = CoursePage.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/EditCourse.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.EditCourse.xaml
+build_metadata.AdditionalFiles.TargetPath = EditCourse.xaml
+build_metadata.AdditionalFiles.RelativePath = EditCourse.xaml
 
 [C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/EditInstructor.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -91,3 +91,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Terms.xaml
 build_metadata.AdditionalFiles.TargetPath = Terms.xaml
 build_metadata.AdditionalFiles.RelativePath = Terms.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/ViewInstructorCourses.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.ViewInstructorCourses.xaml
+build_metadata.AdditionalFiles.TargetPath = ViewInstructorCourses.xaml
+build_metadata.AdditionalFiles.RelativePath = ViewInstructorCourses.xaml
