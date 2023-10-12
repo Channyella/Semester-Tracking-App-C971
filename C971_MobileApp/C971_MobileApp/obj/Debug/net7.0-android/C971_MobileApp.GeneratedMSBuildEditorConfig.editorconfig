@@ -20,6 +20,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddInstruct
 build_metadata.AdditionalFiles.TargetPath = AddInstructor.xaml
 build_metadata.AdditionalFiles.RelativePath = AddInstructor.xaml
 
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddTerm.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddTerm.xaml
+build_metadata.AdditionalFiles.TargetPath = AddTerm.xaml
+build_metadata.AdditionalFiles.RelativePath = AddTerm.xaml
+
 [C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.App.xaml
@@ -49,6 +55,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.EditInstructor.xaml
 build_metadata.AdditionalFiles.TargetPath = EditInstructor.xaml
 build_metadata.AdditionalFiles.RelativePath = EditInstructor.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/EditTerm.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.EditTerm.xaml
+build_metadata.AdditionalFiles.TargetPath = EditTerm.xaml
+build_metadata.AdditionalFiles.RelativePath = EditTerm.xaml
 
 [C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/Instructors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -97,3 +109,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.ViewInstructorCourses.xaml
 build_metadata.AdditionalFiles.TargetPath = ViewInstructorCourses.xaml
 build_metadata.AdditionalFiles.RelativePath = ViewInstructorCourses.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/ViewTermCourses.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.ViewTermCourses.xaml
+build_metadata.AdditionalFiles.TargetPath = ViewTermCourses.xaml
+build_metadata.AdditionalFiles.RelativePath = ViewTermCourses.xaml

@@ -38,10 +38,11 @@ namespace C971_MobileApp.Data
             Init();
             return conn.FindWithQuery<Term>("SELECT * FROM term WHERE Id = ?", id);
         }
-        public void AddTerm(Term term)
+        public Term AddTerm(Term term)
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Insert(term);
+            return term;
         }
         public void DeleteTerm(int id)
         {

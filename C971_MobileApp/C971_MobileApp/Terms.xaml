@@ -34,25 +34,69 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <Label Grid.RowSpan="6"
+                        <Label Grid.ColumnSpan="4"
                                FontSize="Large"
-                               Text="{Binding Name}"/>
-                        <Label Grid.Row="1"
+                               Text="{Binding Name}"
                                Grid.Column="0"
-                               Text="{Binding course1}"/>
-                        <DatePicker Grid.Row="1"
-                                    Grid.Column="1"/>
-
+                               Grid.Row="0"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding StartDate, StringFormat='{0:d}'}"
+                               FontSize="Medium"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="--"
+                               FontSize="Medium"
+                               Grid.Row="1"
+                               Grid.Column="2"
+                               HorizontalTextAlignment="Center"
+                               Margin="0,0,20,0"/>
+                        <Label Text="{Binding EndDate, StringFormat='{0:d}'}"
+                               FontSize="Medium"
+                               Grid.Row="1"
+                               Grid.Column="3"
+                               Grid.ColumnSpan="2"/>
+                        <Button Text="View Courses"
+                                x:Name="CourseButton"
+                                Clicked="ViewCourses"
+                                BindingContext="{Binding Id}"
+                                Grid.Column="0"
+                                Grid.Row="2"
+                                Grid.ColumnSpan="2"
+                                HeightRequest="50"/>
+                        <ImageButton Source="edit.svg"                                
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Aspect="AspectFit"
+                                HeightRequest="75"
+                                WidthRequest="75"
+                                Padding="10, 0, 10, 0"
+                                Margin="40, 0, 10, 0"
+                                BindingContext="{Binding Id}"
+                                Clicked="EditTerm"/>
+                        <ImageButton Source="delete.svg"
+                                Grid.Row="2"
+                                Grid.Column="3"
+                                Padding="10, 10, 10, 10"
+                                Margin="10, 0, 10, 0"
+                                Aspect="AspectFill"
+                                HeightRequest="75"
+                                WidthRequest="75"
+                                BindingContext="{Binding Id}"
+                                Clicked="DeleteTerm"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button Text="Add Term"
-                x:Name="addTermButton"
+                x:Name="addTermBtn"
                 WidthRequest="150"
                 HorizontalOptions="Start"
+                Clicked="AddTermButton"
                 Margin="10"/>
     </VerticalStackLayout>
 </ContentPage>

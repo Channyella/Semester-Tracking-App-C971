@@ -8,7 +8,9 @@
     
     <VerticalStackLayout>
         <Entry x:Name="Name"
-               Placeholder="Enter Name"/>
+               Placeholder="Enter Name"
+               HorizontalTextAlignment="Center"
+               FontSize="Medium"/>
         <Entry x:Name="Email"
                Placeholder="Enter E-mail"/>
         <Entry x:Name="PhoneNumber"

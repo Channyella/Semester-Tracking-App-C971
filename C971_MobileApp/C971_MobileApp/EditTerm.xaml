@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.EditTerm"
+             Title="Edit Term">
+    <VerticalStackLayout>
+        <Grid HorizontalOptions="CenterAndExpand"
+              WidthRequest="300"
+              x:Name="TermItem"
+              Padding="10"
+              Background="Transparent">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Entry Placeholder="{Binding Name}"
+                   x:Name="Name"/>
+            <Label Text="Start Date:"
+                Grid.Column="0"
+                Grid.Row="2"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"/>
+            <DatePicker Date="{Binding StartDate}"
+                    x:Name="StartDate"
+                    MinimumDate="01/01/2023"
+                    MaximumDate="12/31/2099"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalOptions="Fill"
+                    FontSize="Medium"/>
+            <Label Text="End Date:"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Medium"/>
+            <DatePicker Date="{Binding EndDate}"
+                        x:Name="EndDate"
+                        MinimumDate="01/01/2023"
+                        MaximumDate="12/31/2099"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        FontSize="Medium"/>
+            <Label Text="Active Course: "
+                   FontSize="Medium"
+                   Grid.Column="0"
+                   Grid.Row="4"
+                   VerticalTextAlignment="Center"/>
+            <Switch IsToggled="True"
+                    x:Name="ActiveSwitch"
+                    OnColor="Blue"
+                    ThumbColor="LightBlue"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    HorizontalOptions="Center"/>
+        </Grid>
+        <Button Text="Add Term"
+                x:Name="AddTermBtn"
+                WidthRequest="200"
+                FontSize="Medium"
+                Clicked="EditTermButton"/>
+    </VerticalStackLayout>
+</ContentPage>

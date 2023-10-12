@@ -23,6 +23,6 @@ public partial class EditInstructor : ContentPage
             PhoneNumber = PhoneNumber.Text,
         });
 
-        Navigation.PushAsync(new Instructors());
+        Navigation.PushAsync(new Terms());
     }
 }
