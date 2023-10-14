@@ -28,5 +28,9 @@ namespace C971_MobileApp
             this.Email = email;
             this.PhoneNumber = phoneNumber;
         }
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

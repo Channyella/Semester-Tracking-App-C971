@@ -16,6 +16,8 @@ namespace C971_MobileApp.Models
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public bool Active { get; set; }
+        // int in Course variables represent courseIds to fill out correct information
         public int Course1 { get; set; }
         public int Course2 { get; set; }
         public int Course3 { get; set; }
@@ -28,7 +30,7 @@ namespace C971_MobileApp.Models
 
         }
        
-        public Term(int id, string name, int course1, int course2, int course3, int course4, int course5, int course6, DateTime startDate, DateTime endDate)
+        public Term(int id, string name, int course1, int course2, int course3, int course4, int course5, int course6, DateTime startDate, DateTime endDate, bool active)
         {
             Id = id;
             Name = name;
@@ -40,6 +42,7 @@ namespace C971_MobileApp.Models
             Course6 = course6;
             StartDate = startDate;
             EndDate = endDate;
+            Active = active;
         }
     }
 }

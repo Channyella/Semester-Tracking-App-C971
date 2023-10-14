@@ -1,4 +1,5 @@
 using C971_MobileApp.Models;
+using System.Collections.ObjectModel;
 using static C971_MobileApp.Models.Course;
 
 namespace C971_MobileApp;
@@ -7,13 +8,29 @@ public partial class NewCourse : ContentPage
 {
 	public int InstructorId { get; set; }
 	public Instructor Instructor { get; set; }
-	public NewCourse(int InstructorId)
+    public ObservableCollection<Instructor> InstructorList { get; set; } = new();
+    public NewCourse(int InstructorId)
 	{
 		this.InstructorId = InstructorId;
 		InitializeComponent();
-		Instructor = App.InstructorData.GetInstructorById(this.InstructorId);
-		InstructorName.Text = Instructor.Name;
-	}
+        List<Instructor> instructorList = App.InstructorData.GetInstructors();
+        foreach (Instructor instructor in instructorList )
+        {
+            InstructorList.Add(instructor);
+        }
+        Instructor = InstructorList.Single(instructor => instructor.Id == InstructorId);
+        InstructorName.SelectedItem = Instructor;
+    }
+    public NewCourse()
+    {
+        InitializeComponent();
+        InstructorName.SelectedItem = Instructor;
+        List<Instructor> instructorList = App.InstructorData.GetInstructors();
+        foreach (Instructor instructor in instructorList)
+        {
+            InstructorList.Add(instructor);
+        }
+    }
 
 	public DatePicker SelectedStartDate = new DatePicker
 	{
@@ -32,15 +49,16 @@ public partial class NewCourse : ContentPage
             await DisplayAlert("Invalid", "There are blank fields. Please fill in before continuing.", "Okay");
             return;
         }
-         Course courseInfo = App.CourseData.AddCourse(new Course
-            {
-                Name = Name.Text,
-                Description = Description.Text,
-                StartDate = StartDate.Date,
-                EndDate = EndDate.Date,
-                InstructorId = this.InstructorId
-            }) ;
-        await Navigation.PushAsync(new ViewInstructorCourses(this.InstructorId));
+        Course courseInfo = App.CourseData.AddCourse(new Course
+        {
+            Name = Name.Text,
+            Description = Description.Text,
+            StartDate = StartDate.Date,
+            EndDate = EndDate.Date,
+            InstructorId = this.InstructorId,
+            Status = ActiveSwitch.IsToggled
+        }) ;
+        await Navigation.PopAsync();
     }
 
 }

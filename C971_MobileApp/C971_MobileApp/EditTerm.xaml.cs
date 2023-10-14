@@ -26,6 +26,6 @@ public partial class EditTerm : ContentPage
             EndDate = EndDate.Date,
         });
 
-        Navigation.PushAsync(new Instructors());
+        Navigation.PushAsync(new Terms());
     }
 }

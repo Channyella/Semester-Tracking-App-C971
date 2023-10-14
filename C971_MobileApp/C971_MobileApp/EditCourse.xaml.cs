@@ -1,4 +1,5 @@
 using C971_MobileApp.Models;
+using System.Collections.ObjectModel;
 
 namespace C971_MobileApp;
 
@@ -7,7 +8,8 @@ public partial class EditCourse : ContentPage
 	private int CourseId { get; set; }
 	public Course Course { get; set; }
 	public Instructor Instructor { get; set; }
-	public EditCourse(int courseId)
+    public ObservableCollection<Instructor> InstructorList { get; set; } = new();
+    public EditCourse(int courseId)
 	{
 		this.CourseId = courseId;
 		InitializeComponent();
@@ -16,9 +18,16 @@ public partial class EditCourse : ContentPage
 		Description.Text = Course.Description;
 		StartDate.Date = Course.StartDate;
 		EndDate.Date = Course.EndDate;
-		InstructorName.Text = (App.InstructorData.GetInstructorById(Course.InstructorId).Name);
+        List<Instructor> instructorList = App.InstructorData.GetInstructors();
+        foreach (Instructor instructor in instructorList)
+        {
+            InstructorList.Add(instructor);
+        }
+        Instructor = InstructorList.Single(instructor => instructor.Id == Course.InstructorId);
+        InstructorName.SelectedItem = Instructor;
+		ActiveSwitch.IsToggled = Course.Status;
 	}
-	public void EditCourseButton(object sender, EventArgs e)
+	public async void EditCourseButton(object sender, EventArgs e)
 	{
 		App.CourseData.EditCourse(new Course
 		{
@@ -28,8 +37,8 @@ public partial class EditCourse : ContentPage
 			StartDate = StartDate.Date,
 			EndDate = EndDate.Date,
 			InstructorId = Course.InstructorId,
-		});
-
-		Navigation.PushAsync(new ViewInstructorCourses(Course.InstructorId));
+            Status = ActiveSwitch.IsToggled,
+        });
+		await Navigation.PopAsync();
 	}
 }

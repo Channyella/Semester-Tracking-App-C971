@@ -36,5 +36,9 @@ namespace C971_MobileApp.Models
             InstructorId = instructorId;
             Notes = notes;
         }
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

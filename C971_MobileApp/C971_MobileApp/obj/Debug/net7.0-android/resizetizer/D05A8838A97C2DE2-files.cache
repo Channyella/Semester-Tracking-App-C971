@@ -1,7 +1,6 @@
 ﻿obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\delete.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\edit.png
-obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\exit.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\home.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\instructor.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\person_icon.png
@@ -11,7 +10,6 @@ obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\splash.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\delete.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\edit.png
-obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\exit.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\home.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\instructor.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\person_icon.png
@@ -21,7 +19,6 @@ obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\splash.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\delete.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\edit.png
-obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\exit.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\home.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\instructor.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\person_icon.png
@@ -31,7 +28,6 @@ obj\Debug\net7.0-android\resizetizer\r\drawable-xhdpi\splash.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\delete.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\edit.png
-obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\exit.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\home.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\instructor.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\person_icon.png
@@ -41,7 +37,6 @@ obj\Debug\net7.0-android\resizetizer\r\drawable-xxhdpi\splash.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\delete.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\edit.png
-obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\exit.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\home.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\instructor.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-xxxhdpi\person_icon.png

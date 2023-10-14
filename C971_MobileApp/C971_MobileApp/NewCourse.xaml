@@ -82,7 +82,10 @@
                    Grid.Row="5"
                    FontSize="Medium"
                    VerticalTextAlignment="Center"/>
-            <Label x:Name="InstructorName"
+            <Picker Title="Instructor Name"
+                    ItemsSource="{Binding InstructorList}"
+                   x:Name="InstructorName"
+                    WidthRequest="150"
                    Grid.Column="1"
                    Grid.Row="5"
                    FontSize="Medium"

@@ -30,7 +30,8 @@ public partial class AddTerm : ContentPage
             Name = Name.Text,
             StartDate = StartDate.Date,
             EndDate = EndDate.Date,
-        });
+            Active = ActiveSwitch.IsToggled
+        }) ;
         await Navigation.PushAsync(new Terms());
     }
 

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971_MobileApp.AddTerm"
-             Title="AddTerm"
+             Title="Add Term"
              x:Name="AddTermXaml"
              BindingContext="{x:Reference AddTermXaml}">
     
@@ -30,7 +30,10 @@
             <Entry Placeholder="Term Name"
                    x:Name="Name"
                    HorizontalTextAlignment="Center"
-                   FontSize="Medium"/>
+                   FontSize="Medium"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   WidthRequest="200"/>
             <Label Text="Start Date:"
                 Grid.Column="0"
                 Grid.Row="2"
@@ -63,7 +66,7 @@
                    Grid.Column="0"
                    Grid.Row="4"
                    VerticalTextAlignment="Center"/>
-            <Switch IsToggled="True"
+            <Switch IsToggled="False"
                     x:Name="ActiveSwitch"
                     OnColor="Blue"
                     ThumbColor="LightBlue"

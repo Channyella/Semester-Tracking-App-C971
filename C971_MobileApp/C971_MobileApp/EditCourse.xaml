@@ -69,7 +69,7 @@
                   Grid.Column="0"
                   Grid.Row="4"
                   VerticalTextAlignment="Center"/>
-            <Switch IsToggled="True"
+            <Switch IsToggled="{Binding Status}"
                    x:Name="ActiveSwitch"
                    OnColor="Blue"
                    ThumbColor="LightBlue"
@@ -81,11 +81,14 @@
                   Grid.Row="5"
                   FontSize="Medium"
                   VerticalTextAlignment="Center"/>
-            <Label x:Name="InstructorName"
-                  Grid.Column="1"
-                  Grid.Row="5"
-                  FontSize="Medium"
-                  VerticalTextAlignment="Center"/>
+            <Picker Title="Instructor Name"
+                    ItemsSource="{Binding InstructorList}"
+                   x:Name="InstructorName"
+                    WidthRequest="150"
+                   Grid.Column="1"
+                   Grid.Row="5"
+                   FontSize="Medium"
+                   VerticalTextAlignment="Center"/>
         </Grid>
         <Button Text="Edit Course"
                WidthRequest="200"
