@@ -84,6 +84,7 @@ public partial class ViewTermCourses : ContentPage
         {
             Term.Course6 = ((Course)Course6.SelectedItem).Id;
             App.TermData.EditTerm(Term);
+            RefreshCourses();
         }
         else {  return; }
     }

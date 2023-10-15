@@ -38,6 +38,11 @@ namespace C971_MobileApp.Data
             Init();
             return conn.FindWithQuery<Term>("SELECT * FROM term WHERE Id = ?", id);
         }
+        public Term GetActiveTerm() 
+        { 
+            Init();
+            return conn.FindWithQuery<Term>("SELECT * FROM term WHERE active = 1");
+        }
         public Term AddTerm(Term term)
         {
             if (term.Active)

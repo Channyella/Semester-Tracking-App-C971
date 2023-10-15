@@ -37,10 +37,10 @@ namespace C971_MobileApp.Data
             Init();
             return conn.FindWithQuery<Course>("SELECT * FROM course WHERE Id = ?", id);
         }
-        public Course GetActiveCoursesByActiveTerm(int id)
+        public List<Course> GetActiveCoursesByActiveTerm(Term term)
         {
             Init();
-            return conn.FindWithQuery<Course>("SELECT course.id FROM course JOIN term AS t ON course.id IN (t.course1, t.course2, t.course3, t.course4, t.course5, t.course6) WHERE t.active = 1 AND course.status = 1");
+            return conn.Query<Course>("SELECT * FROM course WHERE id IN (?, ?, ?, ?, ?, ?) AND status = 1", term.Course1, term.Course2, term.Course3, term.Course4, term.Course5, term.Course6);
         }
         public Course AddCourse(Course course)
         {

@@ -18,9 +18,9 @@ public partial class ViewInstructorCourses : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        RefreshInstructors();
+        RefreshCourses();
     }
-    private void RefreshInstructors()
+    private void RefreshCourses()
     {
         CourseData.Clear();
         List<Course> courseList = App.CourseData.GetCoursesByInstructorId(InstructorId);
@@ -57,7 +57,7 @@ public partial class ViewInstructorCourses : ContentPage
     {
         ImageButton button = (ImageButton)sender;
         App.CourseData.DeleteCourse((int)button.BindingContext);
-        RefreshInstructors();
+        RefreshCourses();
     }
 
 }
