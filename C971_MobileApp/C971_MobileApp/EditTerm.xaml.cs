@@ -15,6 +15,7 @@ public partial class EditTerm : ContentPage
         Name.Text = Term.Name;
         StartDate.Date = Term.StartDate;
         EndDate.Date = Term.EndDate;
+        ActiveSwitch.IsToggled = Term.Active;
     }
     public void EditTermButton(object sender, EventArgs e)
     {
@@ -24,8 +25,9 @@ public partial class EditTerm : ContentPage
             Name = Name.Text,
             StartDate = StartDate.Date,
             EndDate = EndDate.Date,
-        });
+            Active = ActiveSwitch.IsToggled
+        }); ;
 
-        Navigation.PushAsync(new Terms());
+        Navigation.PopAsync();
     }
 }

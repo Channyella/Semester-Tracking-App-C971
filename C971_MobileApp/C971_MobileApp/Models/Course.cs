@@ -38,6 +38,10 @@ namespace C971_MobileApp.Models
         }
         public override string ToString()
         {
+            if (this.Status)
+            {
+                return this.Name + " (Active)";
+            }
             return this.Name;
         }
     }

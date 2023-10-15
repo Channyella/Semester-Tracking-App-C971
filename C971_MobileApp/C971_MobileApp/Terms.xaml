@@ -25,13 +25,14 @@
                           BackgroundColor="AliceBlue">
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -43,33 +44,48 @@
                                Grid.Column="0"
                                Grid.Row="0"
                                HorizontalTextAlignment="Center"/>
+                        <HorizontalStackLayout Grid.Row="1"
+                                               Grid.ColumnSpan="4"
+                                               HorizontalOptions="Center">
+                            <Label Text="Active: "
+                               FontSize="Medium"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="End"/>
+                        <Switch BindingContext="{Binding .}"
+                                IsToggled="{Binding Active}"
+                                OnColor="Blue"
+                                ThumbColor="LightBlue"
+                                Toggled="OneActiveTermOnly"
+                                HorizontalOptions="Start"/>
+                        </HorizontalStackLayout>
                         <Label Text="{Binding StartDate, StringFormat='{0:d}'}"
                                FontSize="Medium"
-                               Grid.Row="1"
+                               Grid.Row="2"
                                Grid.Column="0"
                                Grid.ColumnSpan="2"
                                HorizontalTextAlignment="Center"/>
                         <Label Text="--"
                                FontSize="Medium"
-                               Grid.Row="1"
+                               Grid.Row="2"
                                Grid.Column="2"
                                HorizontalTextAlignment="Center"
                                Margin="0,0,20,0"/>
                         <Label Text="{Binding EndDate, StringFormat='{0:d}'}"
                                FontSize="Medium"
-                               Grid.Row="1"
+                               Grid.Row="2"
                                Grid.Column="3"
                                Grid.ColumnSpan="2"/>
                         <Button Text="View Courses"
                                 x:Name="CourseButton"
                                 Clicked="ViewCourses"
                                 BindingContext="{Binding Id}"
+                                FontSize="Medium"
                                 Grid.Column="0"
-                                Grid.Row="2"
+                                Grid.Row="3"
                                 Grid.ColumnSpan="2"
                                 HeightRequest="50"/>
                         <ImageButton Source="edit.svg"                                
-                                Grid.Row="2"
+                                Grid.Row="3"
                                 Grid.Column="2"
                                 Aspect="AspectFit"
                                 HeightRequest="75"
@@ -79,7 +95,7 @@
                                 BindingContext="{Binding Id}"
                                 Clicked="EditTerm"/>
                         <ImageButton Source="delete.svg"
-                                Grid.Row="2"
+                                Grid.Row="3"
                                 Grid.Column="3"
                                 Padding="10, 10, 10, 10"
                                 Margin="10, 0, 10, 0"
@@ -97,6 +113,7 @@
                 WidthRequest="150"
                 HorizontalOptions="Start"
                 Clicked="AddTermButton"
-                Margin="10"/>
+                Margin="10"
+                FontSize="Medium"/>
     </VerticalStackLayout>
 </ContentPage>

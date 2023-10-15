@@ -1,24 +1,21 @@
-﻿namespace C971_MobileApp
+﻿using C971_MobileApp.Models;
+using System.Collections.ObjectModel;
+
+namespace C971_MobileApp
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        public ObservableCollection<Term> TermData { get; set; } = new();
 
         public MainPage()
         {
             InitializeComponent();
+            List<Term> termData = App.TermData.GetAllTerms();
+            foreach(Term term in termData)
+            {
+                TermData.Add(term);
+            }
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
     }
 }

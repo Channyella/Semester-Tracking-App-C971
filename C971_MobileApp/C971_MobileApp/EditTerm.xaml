@@ -24,8 +24,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Entry Placeholder="{Binding Name}"
-                   x:Name="Name"
+            <Entry x:Name="Name"
                    HorizontalTextAlignment="Center"
                    FontSize="Medium"
                    Grid.Row="0"
@@ -37,8 +36,7 @@
                 VerticalTextAlignment="Center"
                 HorizontalTextAlignment="Center"
                 FontSize="Medium"/>
-            <DatePicker Date="{Binding StartDate}"
-                    x:Name="StartDate"
+            <DatePicker x:Name="StartDate"
                     MinimumDate="01/01/2023"
                     MaximumDate="12/31/2099"
                     Grid.Row="2"
@@ -51,8 +49,7 @@
                    VerticalTextAlignment="Center"
                    HorizontalTextAlignment="Center"
                    FontSize="Medium"/>
-            <DatePicker Date="{Binding EndDate}"
-                        x:Name="EndDate"
+            <DatePicker x:Name="EndDate"
                         MinimumDate="01/01/2023"
                         MaximumDate="12/31/2099"
                         Grid.Row="3"
@@ -63,8 +60,7 @@
                    Grid.Column="0"
                    Grid.Row="4"
                    VerticalTextAlignment="Center"/>
-            <Switch IsToggled="True"
-                    x:Name="ActiveSwitch"
+            <Switch x:Name="ActiveSwitch"
                     OnColor="Blue"
                     ThumbColor="LightBlue"
                     Grid.Column="1"

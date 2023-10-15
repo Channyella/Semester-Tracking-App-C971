@@ -14,72 +14,7 @@ public partial class ViewTermCourses : ContentPage
 		TermId = termId;
 		this.Term = App.TermData.GetTermById(TermId);
 		InitializeComponent();
-		List<Course> courseList = App.CourseData.GetAllCourses();
-		foreach (Course course in courseList)
-		{
-			CourseList.Add(course);
-		}
-        if (Term.Course1 > 0)
-        {
-            Course course1 = CourseList.Single(course => course.Id == Term.Course1);
-            Course1.SelectedItem = course1;
-            StartDateCourse1.Text = course1.StartDate.ToShortDateString();
-            EndDateCourse1.Text = course1.EndDate.ToShortDateString();
-            ViewDetails1.BindingContext = course1.Id;
-            EditCourse1.BindingContext = course1.Id;
-            DeleteCourse1.BindingContext = course1.Id;
-        }
-
-        if (Term.Course2 > 0)
-        {
-            Course course2 = CourseList.Single(course => course.Id == Term.Course2);
-            Course2.SelectedItem = course2;
-            StartDateCourse2.Text = course2.StartDate.ToShortDateString();
-            EndDateCourse2.Text = course2.EndDate.ToShortDateString();
-            ViewDetails2.BindingContext = course2.Id;
-            EditCourse2.BindingContext = course2.Id;
-            DeleteCourse2.BindingContext = course2.Id;
-        }
-        if (Term.Course3 > 0)
-        {
-            Course course3 = CourseList.Single(course => course.Id == Term.Course3);
-            Course3.SelectedItem = course3;
-            StartDateCourse3.Text = course3.StartDate.ToShortDateString();
-            EndDateCourse3.Text = course3.EndDate.ToShortDateString();
-            ViewDetails3.BindingContext = course3.Id;
-            EditCourse3.BindingContext = course3.Id;
-            DeleteCourse3.BindingContext = course3.Id;
-        }
-        if (Term.Course4 > 0)
-        {
-            Course course4 = CourseList.Single(course => course.Id == Term.Course4);
-            Course4.SelectedItem = course4;
-            StartDateCourse4.Text = course4.StartDate.ToShortDateString();
-            EndDateCourse4.Text = course4.EndDate.ToShortDateString();
-            ViewDetails4.BindingContext = course4.Id;
-            EditCourse4.BindingContext = course4.Id;
-            DeleteCourse4.BindingContext = course4.Id;
-        }
-        if (Term.Course5 > 0)
-        {
-            Course course5 = CourseList.Single(course => course.Id == Term.Course5);
-            Course2.SelectedItem = course5;
-            StartDateCourse5.Text = course5.StartDate.ToShortDateString();
-            EndDateCourse5.Text = course5.EndDate.ToShortDateString();
-            ViewDetails5.BindingContext = course5.Id;
-            EditCourse5.BindingContext = course5.Id;
-            DeleteCourse5.BindingContext = course5.Id;
-        }
-        if (Term.Course6 > 0)
-        {
-            Course course6 = CourseList.Single(course => course.Id == Term.Course6);
-            Course6.SelectedItem = course6;
-            StartDateCourse6.Text = course6.StartDate.ToShortDateString();
-            EndDateCourse6.Text = course6.EndDate.ToShortDateString();
-            ViewDetails6.BindingContext = course6.Id;
-            EditCourse6.BindingContext = course6.Id;
-            DeleteCourse6.BindingContext = course6.Id;
-        }
+        RefreshCourses();
     }
 	public void ViewCourse(object sender, EventArgs e)
 	{
@@ -172,7 +107,6 @@ public partial class ViewTermCourses : ContentPage
     }
     public void NewCourse(object sender, EventArgs e)
     {
-        Button button = (Button)sender;
         Navigation.PushAsync(new NewCourse());
     }
     protected override void OnAppearing()
@@ -189,7 +123,7 @@ public partial class ViewTermCourses : ContentPage
         {
             CourseList.Add(course);
         }
-        if (Term.Course1 > 0)
+        if (CourseList.Any(course => course.Id == Term.Course1))
         {
             Course course1 = CourseList.Single(course => course.Id == Term.Course1);
             Course1.SelectedItem = course1;
@@ -200,7 +134,7 @@ public partial class ViewTermCourses : ContentPage
             DeleteCourse1.BindingContext = course1.Id;
         }
 
-        if (Term.Course2 > 0)
+        if (CourseList.Any(course => course.Id == Term.Course2))
         {
             Course course2 = CourseList.Single(course => course.Id == Term.Course2);
             Course2.SelectedItem = course2;
@@ -210,7 +144,7 @@ public partial class ViewTermCourses : ContentPage
             EditCourse2.BindingContext = course2.Id;
             DeleteCourse2.BindingContext = course2.Id;
         }
-        if (Term.Course3 > 0)
+        if (CourseList.Any(course => course.Id == Term.Course3))
         {
             Course course3 = CourseList.Single(course => course.Id == Term.Course3);
             Course3.SelectedItem = course3;
@@ -220,7 +154,7 @@ public partial class ViewTermCourses : ContentPage
             EditCourse3.BindingContext = course3.Id;
             DeleteCourse3.BindingContext = course3.Id;
         }
-        if (Term.Course4 > 0)
+        if (CourseList.Any(course => course.Id == Term.Course4))
         {
             Course course4 = CourseList.Single(course => course.Id == Term.Course4);
             Course4.SelectedItem = course4;
@@ -230,7 +164,7 @@ public partial class ViewTermCourses : ContentPage
             EditCourse4.BindingContext = course4.Id;
             DeleteCourse4.BindingContext = course4.Id;
         }
-        if (Term.Course5 > 0)
+        if (CourseList.Any(course => course.Id == Term.Course5))
         {
             Course course5 = CourseList.Single(course => course.Id == Term.Course5);
             Course2.SelectedItem = course5;
@@ -240,7 +174,7 @@ public partial class ViewTermCourses : ContentPage
             EditCourse5.BindingContext = course5.Id;
             DeleteCourse5.BindingContext = course5.Id;
         }
-        if (Term.Course6 > 0)
+        if (CourseList.Any(course => course.Id == Term.Course6))
         {
             Course course6 = CourseList.Single(course => course.Id == Term.Course6);
             Course6.SelectedItem = course6;

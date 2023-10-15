@@ -40,6 +40,10 @@ namespace C971_MobileApp.Data
         }
         public Term AddTerm(Term term)
         {
+            if (term.Active)
+            {
+                DeactivateAllTerms();
+            }
             conn = new SQLiteConnection(this.dbPath);
             conn.Insert(term);
             return term;
@@ -51,7 +55,28 @@ namespace C971_MobileApp.Data
         }
         public void EditTerm(Term term)
         {
+            if(term.Active)
+            {
+                DeactivateAllTerms();
+            }
             conn = new SQLiteConnection(this.dbPath);
+            conn.Update(term);
+        }
+        private void DeactivateAllTerms()
+        {
+            Init();
+            Term activeTerm = conn.FindWithQuery<Term>("SELECT * FROM term WHERE active = 1");
+            if (activeTerm != null)
+            {
+                activeTerm.Active = false;
+                conn.Update(activeTerm);
+            }
+        }
+        public void ActivateTerm(Term term)
+        {
+            Init();
+            DeactivateAllTerms();
+            term.Active = true;
             conn.Update(term);
         }
     }

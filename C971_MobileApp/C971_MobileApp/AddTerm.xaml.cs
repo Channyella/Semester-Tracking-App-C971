@@ -32,7 +32,7 @@ public partial class AddTerm : ContentPage
             EndDate = EndDate.Date,
             Active = ActiveSwitch.IsToggled
         }) ;
-        await Navigation.PushAsync(new Terms());
+        await Navigation.PopAsync();
     }
 
 }

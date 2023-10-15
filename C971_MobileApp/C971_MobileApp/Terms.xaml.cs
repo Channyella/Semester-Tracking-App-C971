@@ -10,6 +10,7 @@ public partial class Terms : ContentPage
 	public Terms()
 	{
 		InitializeComponent();
+        RefreshTerms();
 	}
 	public void AddTermButton(object sender, EventArgs e)
 	{
@@ -50,5 +51,33 @@ public partial class Terms : ContentPage
             {
                 TermData.Add(term);
             }
+    }
+    public void OneActiveTermOnly (object sender, ToggledEventArgs e)
+    {
+        Switch switchEl = (Switch)sender;
+        Term term = (Term)switchEl.BindingContext;
+        if(e.Value)
+        {
+            App.TermData.ActivateTerm(term);
+            foreach (Term currTerm in TermData)
+            {
+                currTerm.Active = (currTerm.Id == term.Id);
+            }
+            updateSwitches();
+        } else
+        {
+            term.Active = false;
+            App.TermData.EditTerm(term);
+        }
+    }
+
+    private void updateSwitches()
+    {
+        IReadOnlyList<IVisualTreeElement> allDescendantsOfTermCollection = TermCollection.GetVisualTreeDescendants();
+        IEnumerable<Switch> termSwitches = allDescendantsOfTermCollection.OfType<Switch>();
+        foreach (Switch termSwitch in termSwitches) {
+            Term term = (Term)termSwitch.BindingContext;
+            termSwitch.IsToggled = term.Active;
+        }
     }
 }

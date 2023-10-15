@@ -70,7 +70,7 @@
                    Grid.Column="0"
                    Grid.Row="4"
                    VerticalTextAlignment="Center"/>
-            <Switch IsToggled="True"
+            <Switch IsToggled="False"
                     x:Name="ActiveSwitch"
                     OnColor="Blue"
                     ThumbColor="LightBlue"
