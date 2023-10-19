@@ -18,7 +18,7 @@ namespace C971_MobileApp.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int InstructorId { get; set; }
-        public string Notes { get; set; }
+        public string CourseNotes { get; set; }
         public int Assessment1 { get; set; }
         public int Assessment2 { get; set; }
 
@@ -34,7 +34,7 @@ namespace C971_MobileApp.Models
             StartDate = startDate;
             EndDate = endDate;
             InstructorId = instructorId;
-            Notes = notes;
+            CourseNotes = notes;
         }
         public override string ToString()
         {

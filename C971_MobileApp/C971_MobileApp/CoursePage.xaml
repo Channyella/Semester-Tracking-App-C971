@@ -4,8 +4,126 @@
              x:Class="C971_MobileApp.CoursePage"
              Title="Course Page">
     <VerticalStackLayout>
-        <DatePicker MinimumDate="01/01/2023"
-                    MaximumDate="01/01/2099"
-                    Date="10/09/2023"/>
+        <Grid HorizontalOptions="CenterAndExpand"
+            x:Name="CourseItem"
+            Padding="10"
+            Background="Transparent">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="Name"
+                   Grid.ColumnSpan="5"
+                   Grid.Row="0"
+                   FontSize="Large"
+                   HorizontalTextAlignment="Center"/>
+            
+            <HorizontalStackLayout Grid.Row="1"
+                                   Grid.ColumnSpan="5"
+                                   HorizontalOptions="Center">
+                <Label Text="Active Course: "
+                 FontSize="Medium"
+                 VerticalTextAlignment="Center"/>
+            <Switch IsEnabled="False"
+                  x:Name="ActiveSwitch"
+                  OnColor="Blue"
+                  ThumbColor="LightBlue"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Grid.Row="2"
+                                   Grid.ColumnSpan="5"
+                                   HorizontalOptions="Center">
+                <DatePicker IsEnabled="False"
+                            x:Name="StartDate"
+                            MinimumDate="01/01/2023"
+                            MaximumDate="12/31/2099"
+                            HorizontalOptions="Fill"
+                            FontSize="Medium"
+                            TextColor="Black"/>
+                <Label Text="-"
+                       FontSize="Medium"
+                       VerticalTextAlignment="Center"
+                       Padding="10,0,10,0"/>
+                <DatePicker x:Name="EndDate"
+                            MinimumDate="01/01/2023"
+                            MaximumDate="12/31/2099"
+                            FontSize="Medium"
+                            IsEnabled="False"
+                            TextColor="Black"/>
+            </HorizontalStackLayout>
+            <Rectangle HeightRequest="1" 
+                       BackgroundColor="Black"
+                       WidthRequest="700"
+                       Grid.ColumnSpan="4"
+                       Grid.Row="2"
+                       VerticalOptions="End"/>
+
+            <Label Text="Description:"
+                   FontSize="Medium"
+                   Grid.Column="0"
+                   Grid.RowSpan="5"
+                   Grid.Row="3"/>
+            <Editor x:Name="Description"
+                   Grid.ColumnSpan="5"
+                   Grid.RowSpan="3"
+                   Grid.Row="4"
+                   FontSize="Medium"/>
+            
+            <HorizontalStackLayout Grid.Row="7"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="4">
+                <Button Text="Save"
+                        FontSize="Medium"/>
+                <Button Text="Share"
+                        FontSize="Medium"/>
+            </HorizontalStackLayout>
+            
+            <Image Grid.Row="8"
+                   Grid.RowSpan="3"
+                   Grid.Column="0"
+                   Source="person_icon.svg"
+                   Aspect="AspectFit"                          
+                   Margin="10"/>
+            <Label x:Name="InstructorName"
+                   WidthRequest="150"
+                   Grid.Column="1"
+                   Grid.Row="8"
+                   Grid.ColumnSpan="4"
+                   FontSize="Medium"
+                   VerticalTextAlignment="Center"/>
+            <Label x:Name="InstructorEmail" 
+                    FontSize="Medium"
+                    Grid.Row="9" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="4"/>
+            <Label x:Name="InstructorPhoneNumber"                               
+                    FontSize="Medium"
+                    Grid.Row="10" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="4"/>
+        </Grid>
+        <Button Text="Edit Course"
+              WidthRequest="200"
+              FontSize="Medium"/>
     </VerticalStackLayout>
 </ContentPage>

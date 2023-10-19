@@ -12,7 +12,8 @@
             ItemsSource="{Binding CourseList}"
             HeightRequest="650">
             <CollectionView.Header>
-                <Label Text="Welcome!"
+                <Label Text="Welcome!                   
+                       View active courses below."
                        HorizontalTextAlignment="Center"
                        FontSize="Large"/>
             </CollectionView.Header>
