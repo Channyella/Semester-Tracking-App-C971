@@ -4,8 +4,9 @@
              x:Class="C971_MobileApp.CoursePage"
              Title="Course Page">
     <VerticalStackLayout>
-        <Grid HorizontalOptions="CenterAndExpand"
-            x:Name="CourseItem"
+        <ScrollView HeightRequest="625"
+                    HorizontalOptions="CenterAndExpand">
+            <Grid x:Name="CourseItem"
             Padding="10"
             Background="Transparent">
 
@@ -18,6 +19,12 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -52,7 +59,8 @@
 
             <HorizontalStackLayout Grid.Row="2"
                                    Grid.ColumnSpan="5"
-                                   HorizontalOptions="Center">
+                                   HorizontalOptions="Center"
+                                   Margin="0,0,0,10">
                 <DatePicker IsEnabled="False"
                             x:Name="StartDate"
                             MinimumDate="01/01/2023"
@@ -82,48 +90,102 @@
                    FontSize="Medium"
                    Grid.Column="0"
                    Grid.ColumnSpan="5"
-                   Grid.Row="3"/>
-            <Editor x:Name="Description"
+                   Grid.Row="3"
+                   Margin="0,20,0,0"/>
+            <Label x:Name="Description"
                    Grid.ColumnSpan="5"
                    Grid.RowSpan="4"
                    Grid.Row="4"
-                   FontSize="Small"/>
-            
-            <HorizontalStackLayout Grid.Row="8"
-                                   Grid.Column="1"
-                                   Grid.ColumnSpan="4">
-                <Button Text="Save"
-                        FontSize="Medium"/>
-                <Button Text="Share"
-                        FontSize="Medium"/>
-            </HorizontalStackLayout>
-            
-            <Image Grid.Row="9"
+                   FontSize="Small"                   
+                   TextColor="Black"
+                   Margin="0,0,0,20"
+                   MinimumHeightRequest="50"
+                   MaximumHeightRequest="200"/>
+            <Rectangle HeightRequest="1" 
+                       BackgroundColor="Black"
+                       WidthRequest="700"
+                       Grid.ColumnSpan="4"
+                       Grid.Row="7"
+                       VerticalOptions="End"/>
+
+            <Image Grid.Row="8"
                    Grid.RowSpan="3"
                    Grid.Column="0"
                    Source="person_icon.svg"
-                   Aspect="AspectFit"                          
-                   Margin="10"/>
+                   Aspect="AspectFit"/>
             <Label x:Name="InstructorName"
-                   WidthRequest="150"
                    Grid.Column="1"
-                   Grid.Row="9"
+                   Grid.Row="8"
                    Grid.ColumnSpan="4"
                    FontSize="Medium"
-                   VerticalTextAlignment="Center"/>
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+                   Margin="10,20,0,0"/>
             <Label x:Name="InstructorEmail" 
+                    FontSize="Medium"
+                    Grid.Row="9" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="4"
+                    Margin="10,0,0,0"/>
+            <Label x:Name="InstructorPhoneNumber"                               
                     FontSize="Medium"
                     Grid.Row="10" 
                     Grid.Column="1"
-                    Grid.ColumnSpan="4"/>
-            <Label x:Name="InstructorPhoneNumber"                               
-                    FontSize="Medium"
-                    Grid.Row="11" 
-                    Grid.Column="1"
-                    Grid.ColumnSpan="4"/>
+                    Grid.ColumnSpan="4"
+                   Margin="10,0,0,20"/>
+            <Rectangle HeightRequest="1" 
+                       BackgroundColor="Black"
+                       WidthRequest="700"
+                       Grid.ColumnSpan="4"
+                       Grid.Row="10"
+                       VerticalOptions="End"/>
+            
+            <Label Text="Notes: "
+                   Grid.Column="0"
+                   Grid.Row="11"
+                   FontSize="Medium"
+                   Margin="0,20,0,10"/>
+            <Frame BorderColor="Grey"
+                   CornerRadius="5"
+                   Padding="8" 
+                   Grid.Row="12"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="5"
+                   Margin="0,0,0,10"
+                   MinimumHeightRequest="50"
+                   MaximumHeightRequest="200">
+                <StackLayout>
+                    <Editor x:Name="Notes"
+                    HeightRequest="400"/>
+                </StackLayout>
+            </Frame>
+
+            <HorizontalStackLayout Grid.Row="16"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="4"
+                                   Spacing="10">
+                    <Button Text="Save"
+                        FontSize="Medium"
+                            HeightRequest="45"
+                            VerticalOptions="Start"
+                            Margin="30,0,0,0"/>
+                    <Button Text="Share"
+                        FontSize="Medium"
+                            HeightRequest="45"
+                            Margin="15,0,0,20"/>
+                </HorizontalStackLayout>
+            <Rectangle HeightRequest="1" 
+                       BackgroundColor="Black"
+                       WidthRequest="700"
+                       Grid.ColumnSpan="4"
+                       Grid.Row="16"
+                       VerticalOptions="End"/>
         </Grid>
+        </ScrollView>
         <Button Text="Edit Course"
-              WidthRequest="200"
-              FontSize="Medium"/>
+                x:Name="EditCourseBtn"
+                WidthRequest="200"
+                FontSize="Medium"
+                Clicked="EditCourse"/>
     </VerticalStackLayout>
 </ContentPage>

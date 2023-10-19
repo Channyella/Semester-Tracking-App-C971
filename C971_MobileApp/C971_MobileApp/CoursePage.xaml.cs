@@ -21,5 +21,15 @@ public partial class CoursePage : ContentPage
         InstructorEmail.Text = instructor.Email;
         InstructorPhoneNumber.Text = instructor.PhoneNumber;
         ActiveSwitch.IsToggled = Course.Status;
+        EditCourseBtn.BindingContext = Course.Id;
+        
+    }
+    public void EditCourse(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+
+        int buttonId = (int)button.BindingContext;
+
+        Navigation.PushAsync(new EditTerm(buttonId));
     }
 }
