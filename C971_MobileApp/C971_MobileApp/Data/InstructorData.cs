@@ -13,20 +13,30 @@ namespace C971_MobileApp.Data
         string dbPath;
         private SQLiteConnection conn;
         public List<Instructor> instructorsList = new List<Instructor>();
-        //public Instructor[] instructorsList = new Instructor[3];
+        public Instructor defaultInstructor = new Instructor { Id = 1, Name = "Annika Patel", PhoneNumber = "555-123-4567", Email = "annika.patel@strimeuniversity.edu"};
 
         public InstructorData(string dbPath) {
             this.dbPath = dbPath;
+            AddDefaultInstructor(defaultInstructor);
         }
 
         public InstructorData()
         {
+            AddDefaultInstructor(defaultInstructor);
         }
 
         public void Init()
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<Instructor>();
+        }
+        public void AddDefaultInstructor(Instructor defaultInstructor)
+        {
+            Init();
+            if (GetInstructors().Count() < 1)
+            {
+                AddInstructor(defaultInstructor);
+            }
         }
         public List<Instructor> GetInstructors()
         {

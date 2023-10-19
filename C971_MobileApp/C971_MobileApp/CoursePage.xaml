@@ -81,15 +81,15 @@
             <Label Text="Description:"
                    FontSize="Medium"
                    Grid.Column="0"
-                   Grid.RowSpan="5"
+                   Grid.ColumnSpan="5"
                    Grid.Row="3"/>
             <Editor x:Name="Description"
                    Grid.ColumnSpan="5"
-                   Grid.RowSpan="3"
+                   Grid.RowSpan="4"
                    Grid.Row="4"
-                   FontSize="Medium"/>
+                   FontSize="Small"/>
             
-            <HorizontalStackLayout Grid.Row="7"
+            <HorizontalStackLayout Grid.Row="8"
                                    Grid.Column="1"
                                    Grid.ColumnSpan="4">
                 <Button Text="Save"
@@ -98,7 +98,7 @@
                         FontSize="Medium"/>
             </HorizontalStackLayout>
             
-            <Image Grid.Row="8"
+            <Image Grid.Row="9"
                    Grid.RowSpan="3"
                    Grid.Column="0"
                    Source="person_icon.svg"
@@ -107,18 +107,18 @@
             <Label x:Name="InstructorName"
                    WidthRequest="150"
                    Grid.Column="1"
-                   Grid.Row="8"
+                   Grid.Row="9"
                    Grid.ColumnSpan="4"
                    FontSize="Medium"
                    VerticalTextAlignment="Center"/>
             <Label x:Name="InstructorEmail" 
                     FontSize="Medium"
-                    Grid.Row="9" 
+                    Grid.Row="10" 
                     Grid.Column="1"
                     Grid.ColumnSpan="4"/>
             <Label x:Name="InstructorPhoneNumber"                               
                     FontSize="Medium"
-                    Grid.Row="10" 
+                    Grid.Row="11" 
                     Grid.Column="1"
                     Grid.ColumnSpan="4"/>
         </Grid>

@@ -49,7 +49,7 @@ public partial class NewCourse : ContentPage
             await DisplayAlert("Invalid", "There are blank fields. Please fill in before continuing.", "Okay");
             return;
         }
-        Course courseInfo = App.CourseData.AddCourse(new Course
+        App.CourseData.AddCourse(new Course
         {
             Name = Name.Text,
             Description = Description.Text,

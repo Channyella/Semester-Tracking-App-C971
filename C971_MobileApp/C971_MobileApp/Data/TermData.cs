@@ -11,22 +11,35 @@ namespace C971_MobileApp.Data
     public class TermData
     {
         string dbPath;
+        CourseData CourseData;
         private SQLiteConnection conn;
-        public List<Term> termList = new List<Term>();
-
-        public TermData(string dbPath)
+        public Term defaultTerm = new() { Name = "Term 1", StartDate = DateTime.Now, EndDate = DateTime.Parse("12/31/2023"), Active = true};
+        public TermData(string dbPath, CourseData courseData)
         {
             this.dbPath = dbPath;
+            this.CourseData = courseData;
+            AddDefaultTerm(defaultTerm);
         }
 
         public TermData()
         {
+            AddDefaultTerm(defaultTerm);
         }
 
         public void Init()
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<Term>();
+        }
+        public void AddDefaultTerm(Term defaultTerm)
+        {
+            Init();
+            if (GetAllTerms().Count < 1)
+            {
+                int courseId = CourseData.GetAllCourses()[0].Id;
+                defaultTerm.Course1 = courseId;
+                AddTerm(defaultTerm);
+            }
         }
         public List<Term> GetAllTerms()
         {

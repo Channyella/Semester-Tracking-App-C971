@@ -12,20 +12,35 @@ namespace C971_MobileApp.Data
     public class CourseData
     {
         string dbPath;
+        InstructorData InstructorData;
         private SQLiteConnection conn;
         public List<Course> courseList = new List<Course>();
+        public Course defaultCourse = new Course { Id = 1, Name = "Math 1010", Description = "Beginning and Basic Algebra to help students build the fundementals of math.", Status = true, StartDate = DateTime.UtcNow, EndDate = DateTime.Parse("12/31/2023") };
 
         public CourseData()
         {
+            AddDefaultCourse(defaultCourse);
         }
-        public CourseData(string dbPath)
+        public CourseData(string dbPath, InstructorData instructorData)
         {
             this.dbPath = dbPath;
+            this.InstructorData = instructorData;
+            AddDefaultCourse(defaultCourse);
         }
         public void Init()
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<Course>();
+        }
+        public void AddDefaultCourse(Course defaultCourse)
+        {
+            Init();
+            if (GetAllCourses().Count < 1)
+            {
+                int instructorId = InstructorData.GetInstructors()[0].Id;
+                defaultCourse.InstructorId = instructorId;
+                AddCourse(defaultCourse);
+            }
         }
         public List<Course> GetAllCourses()
         {
