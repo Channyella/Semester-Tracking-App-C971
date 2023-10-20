@@ -57,6 +57,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="AddEditAssessment.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="AddInstructor.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

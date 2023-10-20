@@ -19,13 +19,13 @@ namespace C971_MobileApp.Models
         public DateTime EndDate { get; set; }
         public int InstructorId { get; set; }
         public string CourseNotes { get; set; }
-        public int Assessment1 { get; set; }
-        public int Assessment2 { get; set; }
+        public int ObjectiveAssessment { get; set; }
+        public int PerformanceAssessment { get; set; }
 
         public Course()
         { }
 
-        public Course(int id, string name, string description, bool status, DateTime startDate, DateTime endDate, int instructorId, string notes)
+        public Course(int id, string name, string description, bool status, DateTime startDate, DateTime endDate, int instructorId, string notes, int objectiveAssessment, int performanceAssessment)
         {
             Id = id;
             Name = name;
@@ -35,6 +35,8 @@ namespace C971_MobileApp.Models
             EndDate = endDate;
             InstructorId = instructorId;
             CourseNotes = notes;
+            ObjectiveAssessment = objectiveAssessment;
+            PerformanceAssessment = performanceAssessment;
         }
         public override string ToString()
         {
