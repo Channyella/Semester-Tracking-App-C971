@@ -26,6 +26,8 @@ public partial class CoursePage : ContentPage
         ActiveSwitch.IsToggled = Course.Status;
         EditCourseBtn.BindingContext = Course.Id;
         Notes.Text = Course.CourseNotes;
+        RefreshAssessments();
+
     }
     public void EditCourse(object sender, EventArgs e)
     {
@@ -47,10 +49,29 @@ public partial class CoursePage : ContentPage
 
     public void EditOA(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new AddEditAssessment(Course.ObjectiveAssessment));
+        bool isOA = true;
+        Navigation.PushAsync(new AddEditAssessment(Course, isOA));
     }
     public void DeleteOA(object sender, EventArgs e)
     {
+
+    }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        RefreshAssessments();
+    }
+    private void RefreshAssessments()
+    {
+        List<Assessment> assessmentList = App.AssessmentData.GetAllAssessments();
+        if (assessmentList.Any(assessment => assessment.Id == Course.ObjectiveAssessment))
+        {
+            Assessment assessmentOA = assessmentList.Single(assessment => assessment.Id == Course.ObjectiveAssessment);
+            ObjectiveAssessment.Text = assessmentOA.Name;
+            StartDateOA.Text = assessmentOA.startDate.ToShortDateString();
+            EndDateOA.Text = assessmentOA.endDate.ToShortDateString();
+            DueDateOA.Text = assessmentOA.dueDate.ToShortDateString();
+        }
 
     }
 

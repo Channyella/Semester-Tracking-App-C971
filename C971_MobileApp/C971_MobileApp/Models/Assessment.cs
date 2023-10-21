@@ -23,18 +23,20 @@ namespace C971_MobileApp.Models
         public string Name { get; set; }
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
+        public DateTime dueDate { get; set; }
 
         public Assessment()
         {
 
         }
-        public Assessment(int id, Type typeName, string name, DateTime startDate, DateTime endDate)
+        public Assessment(int id, Type typeName, string name, DateTime startDate, DateTime endDate, DateTime dueDate)
         {
             Id = id;
             TypeName = typeName;
             Name = name;
             this.startDate = startDate;
             this.endDate = endDate;
+            this.dueDate = dueDate;
         }
     }
 }

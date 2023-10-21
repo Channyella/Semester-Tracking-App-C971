@@ -37,7 +37,13 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
             <Label x:Name="Name"
                    Grid.ColumnSpan="5"
@@ -181,14 +187,31 @@
                        Grid.ColumnSpan="4"
                        Grid.Row="11"
                        VerticalOptions="End"/>
+                
+                
                 <Label Text="Assessments: "
                    FontSize="Medium"
                        Grid.Column="0"
                        Grid.Row="12"
                        Grid.ColumnSpan="5"
-                       Margin="0,20,0,0"/>
-                <HorizontalStackLayout Grid.Row="13"
-                                       Spacing="15">
+                       Margin="0,20,0,10"/>
+                <Rectangle HeightRequest="1" 
+                       BackgroundColor="LightGrey"
+                       WidthRequest="700"
+                       Grid.ColumnSpan="4"
+                       Grid.Row="12"
+                       VerticalOptions="End"/>
+
+                <Label Text="Objective Assessment"
+                           VerticalTextAlignment="End"
+                       Grid.Row="13"
+                       Grid.ColumnSpan="5"
+                       HorizontalOptions="Center"
+                       FontSize="Medium"
+                       Margin="0,10,0,0"/>
+                <HorizontalStackLayout Grid.Row="14"
+                                       Spacing="15"
+                                       HorizontalOptions="Center">
                     <Entry x:Name="ObjectiveAssessment"
                        Placeholder="OA Name"
                        PlaceholderColor="Black"
@@ -198,16 +221,19 @@
                        Grid.ColumnSpan="2"
                        Grid.Row="13"
                        IsReadOnly="True"/>
-                    <Label Text="Objective Assessment"
-                           VerticalTextAlignment="End"
-                       Grid.Row="13"
-                       Grid.Column="2"
-                       Grid.ColumnSpan="2"
-                       FontSize="Medium"/>
+                    <Label Text="Due Date: "
+                           FontSize="Medium"
+                           VerticalOptions="Center"/>
+                    <Entry x:Name="DueDateOA"
+                   Placeholder="mm/dd/yyyy"
+                   Margin="0,0,0,0"
+                   IsReadOnly="True"
+                   FontSize="Medium"/>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Row="14" Spacing="10">
-                    <HorizontalStackLayout HeightRequest="45" Spacing="5">
-                        <Entry x:Name="StartDateOA"
+                <HorizontalStackLayout Grid.Row="15" 
+                                       Spacing="10"
+                                       HorizontalOptions="Center">
+                    <Entry x:Name="StartDateOA"
                    Placeholder="mm/dd/yyyy"
                    Margin="0,0,0,0"
                    IsReadOnly="True"
@@ -227,19 +253,24 @@
                    Grid.Row="14"
                    FontSize="Medium"/>
                     </HorizontalStackLayout>
-                    <ImageButton Source="edit.svg"
-                        Aspect="AspectFill"
-                        HeightRequest="25"
-                        WidthRequest="25"
+                <HorizontalStackLayout Grid.Row="16"
+                                       Spacing="10"
+                                       HorizontalOptions="Center"
+                                       Margin="0,0,0,10">
+                    <Button Text="Edit OA"
                         x:Name="EditOABtn"
                         Clicked="EditOA"/>
-                    <ImageButton Source="delete.svg"
-                        Aspect="AspectFill"
-                        HeightRequest="30"
-                        WidthRequest="30"
+                    <Button Text="Delete OA"
                         x:Name="DeleteOABtn"
                         Clicked="DeleteOA"/>
                 </HorizontalStackLayout>
+                <Rectangle HeightRequest="1" 
+                       BackgroundColor="LightGrey"
+                       WidthRequest="700"
+                       Grid.ColumnSpan="4"
+                       Grid.Row="16"
+                       VerticalOptions="End"/>
+
 
             </Grid>
         </ScrollView>

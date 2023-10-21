@@ -36,10 +36,11 @@ namespace C971_MobileApp.Data
             Init();
             return conn.FindWithQuery<Assessment>("SELECT * FROM assessment WHERE Id = ?", id);
         }
-        public void AddAssessment(Assessment assessment)
+        public Assessment AddAssessment(Assessment assessment)
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Insert(assessment);
+            return assessment;
         }
         public void DeleteAssessment(int id)
         {

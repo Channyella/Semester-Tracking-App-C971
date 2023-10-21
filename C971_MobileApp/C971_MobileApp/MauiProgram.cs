@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using C971_MobileApp.Data;
+using Plugin.LocalNotification;
 
 namespace C971_MobileApp
 {
@@ -11,6 +12,7 @@ namespace C971_MobileApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseLocalNotification()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
