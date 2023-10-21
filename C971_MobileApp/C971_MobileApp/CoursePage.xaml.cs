@@ -1,5 +1,6 @@
 using C971_MobileApp.Models;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace C971_MobileApp;
 
@@ -39,6 +40,7 @@ public partial class CoursePage : ContentPage
     }
     public void ShareCourseNotes(object sender, EventArgs e)
     {
+        DisplayAlert("Saved Notes", "Notes have been saved.","OK");
         Share.Default.RequestAsync(new ShareTextRequest(Notes.Text, "Share Course Notes"));
     }
     public void SaveNotes(object sender, EventArgs e)
@@ -49,12 +51,45 @@ public partial class CoursePage : ContentPage
 
     public void EditOA(object sender, EventArgs e)
     {
+        List<Assessment> assessmentList = App.AssessmentData.GetAllAssessments();
+        if (assessmentList.Any(assessment => assessment.Id == Course.ObjectiveAssessment))
+        {
+            Assessment OA = assessmentList.Single(assessment => assessment.Id == Course.ObjectiveAssessment);
+            Navigation.PushAsync(new AddEditAssessment(OA));
+            return;
+        }
         bool isOA = true;
         Navigation.PushAsync(new AddEditAssessment(Course, isOA));
     }
-    public void DeleteOA(object sender, EventArgs e)
+    public void EditPA(object sender, EventArgs e)
     {
-
+        List<Assessment> assessmentList = App.AssessmentData.GetAllAssessments();
+        if (assessmentList.Any(assessment => assessment.Id == Course.PerformanceAssessment))
+        {
+            Assessment PA = assessmentList.Single(assessment => assessment.Id == Course.PerformanceAssessment);
+            Navigation.PushAsync(new AddEditAssessment(PA));
+            return;
+        }
+        bool isOA = false;
+        Navigation.PushAsync(new AddEditAssessment(Course, isOA));
+    }
+    public async void DeleteOA(object sender, EventArgs e)
+    {
+        bool deleteOA = await DisplayAlert("Delete OA", "Are you sure you want to delete this objective assessment?", "Yes", "No");
+        if (deleteOA)
+        {
+            App.AssessmentData.DeleteAssessment(Course.ObjectiveAssessment);
+            RefreshAssessments();
+        }
+    }
+    public async void DeletePA(object sender, EventArgs e)
+    {
+        bool deletePA = await DisplayAlert("Delete PA", "Are you sure you want to delete this performance assessment?", "Yes", "No");
+        if (deletePA)
+        {
+            App.AssessmentData.DeleteAssessment(Course.PerformanceAssessment);
+            RefreshAssessments();
+        }
     }
     protected override void OnAppearing()
     {
@@ -71,6 +106,26 @@ public partial class CoursePage : ContentPage
             StartDateOA.Text = assessmentOA.startDate.ToShortDateString();
             EndDateOA.Text = assessmentOA.endDate.ToShortDateString();
             DueDateOA.Text = assessmentOA.dueDate.ToShortDateString();
+        } else
+        {
+            ObjectiveAssessment.Text = string.Empty;
+            StartDateOA.Text = string.Empty; 
+            EndDateOA.Text = string.Empty;
+            DueDateOA.Text = string.Empty;
+        }
+        if (assessmentList.Any(assessment => assessment.Id == Course.PerformanceAssessment))
+        {
+            Assessment assessmentPA = assessmentList.Single(assessment => assessment.Id == Course.PerformanceAssessment);
+            PerformanceAssessment.Text = assessmentPA.Name;
+            StartDatePA.Text = assessmentPA.startDate.ToShortDateString();
+            EndDatePA.Text = assessmentPA.endDate.ToShortDateString();
+            DueDatePA.Text = assessmentPA.dueDate.ToShortDateString();
+        } else
+        {
+            PerformanceAssessment.Text = string.Empty;
+            StartDatePA.Text = string.Empty;
+            EndDatePA.Text = string.Empty; 
+            DueDatePA.Text = string.Empty;
         }
 
     }

@@ -10,34 +10,46 @@ public partial class AddEditAssessment : ContentPage
 	public Course Course { get; set; }
 	public bool isOA { get; set; }
     public DatePicker DueDate;
+	public DatePicker SelectedEndDate;
     public AddEditAssessment(Course course, bool isOA)
 	{
 		Course = course;
-		int courseId = course.Id;
 		this.isOA = isOA;
+        DueDate = new DatePicker
+        {
+            Date = course.EndDate.Date
+        };
+        SelectedEndDate = new DatePicker
+        {
+            Date = course.EndDate.Date
+        };
+        InitializeComponent();
+        if (isOA)
+        {
+            assessmentType.Text = "Objective Assessment";
+        }
+        else
+        {
+            assessmentType.Text = "Performance Assessment";
+        }
+        EndDate.Date = SelectedEndDate.Date;
+        DueDateField.Date = DueDate.Date;
+
+    }
+	public AddEditAssessment(Assessment assessment)
+	{   this.Assessment = assessment;
 		InitializeComponent();
-		if (isOA)
-		{
-			assessmentType.Text = "Objective Assessment";
-		}
-		else
-		{
-			assessmentType.Text = "Performance Assessment";
-		}
-		DueDate = new DatePicker
-		{
-			Date = Course.StartDate
-		};
+		assessmentName.Text = assessment.Name;
+		assessmentType.Text = assessment.TypeName == Models.Type.ObjectiveAssessment ? "Objective Assessment" : "Performance Assessment";
+		StartDate.Date = assessment.startDate.Date;
+		EndDate.Date = assessment.endDate.Date;
+		DueDateField.Date = assessment.dueDate.Date;
 	}
     public DatePicker SelectedStartDate = new DatePicker
     {
         Date = DateTime.Now
     };
-
-    public DatePicker SelectedEndDate = new DatePicker
-    {
-        Date = DateTime.Now
-    };
+ 
 	public async void EditAssessment(object sender, EventArgs e)
 	{
 		if (string.IsNullOrWhiteSpace(assessmentName.Text))
@@ -46,28 +58,40 @@ public partial class AddEditAssessment : ContentPage
 			return;
 		}
         if (DueDateField.Date < StartDate.Date || EndDate.Date < StartDate.Date 
-			|| DueDateField.Date <= EndDate.Date )
+			|| DueDateField.Date < EndDate.Date )
         {
 			await DisplayAlert("Invalid", "End date of assessment must be after the starting date. However, due to multiple attempt allowance, end date can be before or the same as due date.", "OK");
 			return;
         }
-		Assessment newAssessment = App.AssessmentData.AddAssessment(new Assessment
+		if (this.Assessment == null)
 		{
-			Name = assessmentName.Text,
-			TypeName = isOA ? Models.Type.ObjectiveAssessment : Models.Type.PerformanceAssessment,
-			startDate = StartDate.Date,
-			endDate = EndDate.Date,
-			dueDate = DueDate.Date
-		}) ;
-		if (isOA)
-		{
-			Course.ObjectiveAssessment = newAssessment.Id;
-		}
-		else
-		{
-			Course.PerformanceAssessment = newAssessment.Id;
-		}
-		App.CourseData.EditCourse(Course);
+            Assessment newAssessment = App.AssessmentData.AddAssessment(new Assessment
+            {
+                Name = assessmentName.Text,
+                TypeName = isOA ? Models.Type.ObjectiveAssessment : Models.Type.PerformanceAssessment,
+                startDate = StartDate.Date,
+                endDate = EndDate.Date,
+                dueDate = DueDateField.Date
+            });
+            if (isOA)
+            {
+                Course.ObjectiveAssessment = newAssessment.Id;
+            }
+            else
+            {
+                Course.PerformanceAssessment = newAssessment.Id;
+            }
+            App.CourseData.EditCourse(Course);
+        }
+        else
+        {
+            this.Assessment.Name = assessmentName.Text;
+            this.Assessment.startDate = StartDate.Date;
+            this.Assessment.endDate = EndDate.Date;
+            this.Assessment.dueDate = DueDateField.Date;
+            App.AssessmentData.EditAssessment(this.Assessment);
+        }
+
         await Navigation.PopAsync();
 	}
 }

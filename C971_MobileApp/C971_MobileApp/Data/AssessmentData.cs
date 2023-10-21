@@ -13,6 +13,8 @@ namespace C971_MobileApp.Data
         string dbPath;
         private SQLiteConnection conn;
         public List<Assessment> courseList = new List<Assessment>();
+        public Assessment defaultOA = new Assessment { Id = 1, TypeName = Models.Type.ObjectiveAssessment, Name = "Math 1010 OA", startDate = DateTime.UtcNow, endDate = DateTime.Parse("12/31/2023"), dueDate = DateTime.Parse("12/31/2023") };
+        public Assessment defaultPA = new Assessment { Id = 2, TypeName = Models.Type.PerformanceAssessment, Name = "Math 1010 PA", startDate = DateTime.UtcNow, endDate = DateTime.Parse("12/31/2023"), dueDate = DateTime.Parse("12/31/2023") };
 
         public AssessmentData()
         {

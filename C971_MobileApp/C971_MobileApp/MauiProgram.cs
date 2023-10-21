@@ -29,7 +29,7 @@ namespace C971_MobileApp
             string dbPathTerm = Path.Combine(FileSystem.AppDataDirectory, "term.db");
 
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<InstructorData>(s, dbPathInstructor));
-            builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<CourseData>(s, dbPathCourse, s.GetRequiredService<InstructorData>()));
+            builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<CourseData>(s, dbPathCourse, s.GetRequiredService<InstructorData>(), s.GetRequiredService<AssessmentData>()));
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<AssessmentData>(s, dbPathAssessment));
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<TermData>(s, dbPathTerm, s.GetRequiredService<CourseData>()));
 

@@ -13,6 +13,7 @@ namespace C971_MobileApp.Data
     {
         string dbPath;
         InstructorData InstructorData;
+        AssessmentData AssessmentData;
         private SQLiteConnection conn;
         public List<Course> courseList = new List<Course>();
         public Course defaultCourse = new Course { Id = 1, Name = "Math 1010", Description = "Beginning and Basic Algebra to help students build the fundementals of math.", Status = true, StartDate = DateTime.UtcNow, EndDate = DateTime.Parse("12/31/2023") };
@@ -21,10 +22,11 @@ namespace C971_MobileApp.Data
         {
             AddDefaultCourse(defaultCourse);
         }
-        public CourseData(string dbPath, InstructorData instructorData)
+        public CourseData(string dbPath, InstructorData instructorData, AssessmentData assessmentData)
         {
             this.dbPath = dbPath;
             this.InstructorData = instructorData;
+            this.AssessmentData = assessmentData;
             AddDefaultCourse(defaultCourse);
         }
         public void Init()
@@ -39,6 +41,10 @@ namespace C971_MobileApp.Data
             {
                 int instructorId = InstructorData.GetInstructors()[0].Id;
                 defaultCourse.InstructorId = instructorId;
+                AssessmentData.AddAssessment(AssessmentData.defaultOA);
+                AssessmentData.AddAssessment(AssessmentData.defaultPA);
+                defaultCourse.ObjectiveAssessment = AssessmentData.defaultOA.Id;
+                defaultCourse.PerformanceAssessment = AssessmentData.defaultPA.Id;
                 AddCourse(defaultCourse);
             }
         }
