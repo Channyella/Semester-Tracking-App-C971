@@ -53,11 +53,15 @@ public partial class ViewInstructorCourses : ContentPage
 
         Navigation.PushAsync(new EditCourse(buttonId));
     }
-    public void DeleteCourse(object sender, EventArgs e)
+    public async void DeleteCourse(object sender, EventArgs e)
     {
-        ImageButton button = (ImageButton)sender;
-        App.CourseData.DeleteCourse((int)button.BindingContext);
-        RefreshCourses();
+        bool deleteCourse = await DisplayAlert("Delete Course", "Are you sure that you want to delete this course?", "Yes", "No");
+        if (deleteCourse)
+        {
+            ImageButton button = (ImageButton)sender;
+            App.CourseData.DeleteCourse((int)button.BindingContext);
+            RefreshCourses();
+        }
     }
 
 }

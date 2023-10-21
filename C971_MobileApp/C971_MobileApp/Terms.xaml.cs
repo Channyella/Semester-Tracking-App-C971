@@ -24,11 +24,15 @@ public partial class Terms : ContentPage
 
 		Navigation.PushAsync(new ViewTermCourses(buttonId));
 	}
-    public void DeleteTerm(object sender, EventArgs e)
+    public async void DeleteTerm(object sender, EventArgs e)
     {
-        ImageButton button = (ImageButton)sender;
-        App.TermData.DeleteTerm((int)button.BindingContext);
-        RefreshTerms();
+        bool deleteTerm = await DisplayAlert("Delete Term", "Are you sure you want to delete this term?", "Yes", "No");
+        if (deleteTerm)
+        {
+            ImageButton button = (ImageButton)sender;
+            App.TermData.DeleteTerm((int)button.BindingContext);
+            RefreshTerms();
+        }
     }
     public void EditTerm(object sender, EventArgs e)
     {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="C971_MobileApp.AddInstructor"
              Title="Add Instructor"
              x:Name="AddInstructorXaml"
@@ -9,16 +10,50 @@
     <VerticalStackLayout>
 
         <Entry x:Name="Name"
-               Placeholder="Enter Name"/>
+               Placeholder="Enter Name"
+               FontSize="Medium">
+            <Entry.Behaviors>
+                <toolkit:TextValidationBehavior
+                x:Name="nameValidator"
+                MinimumLength="1"
+                Flags="ValidateOnAttaching,ValidateOnValueChanged"/>
+            </Entry.Behaviors>
+        </Entry>
         <Entry x:Name="Email"
-               Placeholder="Enter E-mail"/>
+               Placeholder="Enter E-mail"
+               Keyboard="Email"
+               FontSize="Medium">
+            <Entry.Behaviors>
+                <toolkit:MultiValidationBehavior
+                    x:Name="emailValidator"
+                    Flags="ValidateOnAttaching,ValidateOnValueChanged">
+                    <toolkit:TextValidationBehavior
+                        MinimumLength="1"
+                        Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                        toolkit:MultiValidationBehavior.Error="Email is required."/>
+                    <toolkit:EmailValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                     toolkit:MultiValidationBehavior.Error="Email format is invalid."/>
+                </toolkit:MultiValidationBehavior>
+            </Entry.Behaviors>
+        </Entry>
         <Entry x:Name="PhoneNumber"
-               Placeholder="Enter Phone Number"/>
+               Placeholder="Enter Phone Number"
+               Keyboard="Telephone"
+               FontSize="Medium">
+            <Entry.Behaviors>
+                <toolkit:TextValidationBehavior
+                    x:Name="phoneValidator"
+                    Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                    RegexOptions="Singleline"
+                    RegexPattern="^(\d{3})[ -]?(\d{3})[ -]?(\d{4})"/>
+            </Entry.Behaviors>
+        </Entry>
 
         <Button x:Name="AddInstructorBtn"
                 Text="Add Instructor"
                 Clicked="AddInstructorButton"
-                WidthRequest="150"
+                FontSize="Medium"
+                WidthRequest="160"
                 Margin="10"/>
 
     </VerticalStackLayout>

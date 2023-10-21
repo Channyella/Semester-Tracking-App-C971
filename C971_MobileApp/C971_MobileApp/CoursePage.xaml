@@ -154,7 +154,8 @@
                    MaximumHeightRequest="200">
                 <StackLayout>
                     <Editor x:Name="Notes"
-                    HeightRequest="400"/>
+                            HeightRequest="400"
+                            FontSize="Medium"/>
                 </StackLayout>
             </Frame>
 
@@ -195,7 +196,8 @@
                        TextColor="Black"
                        Grid.Column="0"
                        Grid.ColumnSpan="2"
-                       Grid.Row="13"/>
+                       Grid.Row="13"
+                       IsReadOnly="True"/>
                     <Label Text="Objective Assessment"
                            VerticalTextAlignment="End"
                        Grid.Row="13"

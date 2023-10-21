@@ -29,7 +29,27 @@ public partial class EditCourse : ContentPage
 	}
 	public async void EditCourseButton(object sender, EventArgs e)
 	{
-		App.CourseData.EditCourse(new Course
+        if (string.IsNullOrWhiteSpace(Name.Text))
+        {
+            await DisplayAlert("Invalid", "Name is required.", "OK");
+            return;
+        }
+        if (string.IsNullOrWhiteSpace(Description.Text))
+        {
+            await DisplayAlert("Invalid", "Description is required", "OK");
+            return;
+        }
+        if (EndDate.Date < StartDate.Date)
+        {
+            await DisplayAlert("Invalid", "The end date must come before start date", "OK");
+            return;
+        }
+        if (InstructorName.SelectedItem == null)
+        {
+            await DisplayAlert("Invalid", "Must have an instructor selected", "OK");
+            return;
+        }
+        App.CourseData.EditCourse(new Course
 		{
 			Id = this.CourseId,
 			Name = Name.Text,

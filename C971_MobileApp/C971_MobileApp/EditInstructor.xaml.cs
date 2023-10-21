@@ -15,6 +15,24 @@ public partial class EditInstructor : ContentPage
 	}
     public void EditInstructorButton(object sender, EventArgs e)
     {
+        if (nameValidator.IsNotValid)
+        {
+            DisplayAlert("Error", "Name is required.", "OK");
+            return;
+        }
+        if (emailValidator.IsNotValid)
+        {
+            foreach(var error in emailValidator.Errors)
+            {
+                DisplayAlert("Error", error.ToString(), "OK");
+            }
+            return;
+        }
+        if (phoneValidator.IsNotValid)
+        {
+            DisplayAlert("Error", "Phone number is required in correct format. XXX-XXX-XXXX", "OK");
+            return;
+        }
         App.InstructorData.EditInstructor(new Instructor
         {
             Id = this.InstructorId,

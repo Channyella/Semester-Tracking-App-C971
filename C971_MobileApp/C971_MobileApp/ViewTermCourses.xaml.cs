@@ -101,11 +101,14 @@ public partial class ViewTermCourses : ContentPage
         if (changeCourse) 
         { 
         ImageButton button = (ImageButton)sender;
+            if (button.BindingContext.GetType() != typeof(int))
+            {
+                await DisplayAlert("Invalid", "No class is set to remove.", "OK");
+                return;
+            }
         App.CourseData.DeleteCourse((int)button.BindingContext);
         RefreshCourses();
-        } 
-        else { return; }
-    
+        }     
     }
     public void NewCourse(object sender, EventArgs e)
     {
@@ -135,6 +138,11 @@ public partial class ViewTermCourses : ContentPage
             EditCourse1.BindingContext = course1.Id;
             DeleteCourse1.BindingContext = course1.Id;
         }
+        else
+        {
+            StartDateCourse1.Text = string.Empty;
+            EndDateCourse1.Text = string.Empty;
+        }
 
         if (CourseList.Any(course => course.Id == Term.Course2))
         {
@@ -146,6 +154,11 @@ public partial class ViewTermCourses : ContentPage
             EditCourse2.BindingContext = course2.Id;
             DeleteCourse2.BindingContext = course2.Id;
         }
+        else
+        {
+            StartDateCourse2.Text = string.Empty;
+            EndDateCourse2.Text = string.Empty;
+        }
         if (CourseList.Any(course => course.Id == Term.Course3))
         {
             Course course3 = CourseList.Single(course => course.Id == Term.Course3);
@@ -155,6 +168,11 @@ public partial class ViewTermCourses : ContentPage
             ViewDetails3.BindingContext = course3.Id;
             EditCourse3.BindingContext = course3.Id;
             DeleteCourse3.BindingContext = course3.Id;
+        }
+        else
+        {
+            StartDateCourse3.Text = string.Empty;
+            EndDateCourse3.Text = string.Empty;
         }
         if (CourseList.Any(course => course.Id == Term.Course4))
         {
@@ -166,6 +184,11 @@ public partial class ViewTermCourses : ContentPage
             EditCourse4.BindingContext = course4.Id;
             DeleteCourse4.BindingContext = course4.Id;
         }
+        else
+        {
+            StartDateCourse4.Text = string.Empty;
+            EndDateCourse4.Text = string.Empty;
+        }
         if (CourseList.Any(course => course.Id == Term.Course5))
         {
             Course course5 = CourseList.Single(course => course.Id == Term.Course5);
@@ -176,6 +199,11 @@ public partial class ViewTermCourses : ContentPage
             EditCourse5.BindingContext = course5.Id;
             DeleteCourse5.BindingContext = course5.Id;
         }
+        else
+        {
+            StartDateCourse5.Text = string.Empty;
+            EndDateCourse5.Text = string.Empty;
+        }
         if (CourseList.Any(course => course.Id == Term.Course6))
         {
             Course course6 = CourseList.Single(course => course.Id == Term.Course6);
@@ -185,6 +213,11 @@ public partial class ViewTermCourses : ContentPage
             ViewDetails6.BindingContext = course6.Id;
             EditCourse6.BindingContext = course6.Id;
             DeleteCourse6.BindingContext = course6.Id;
+        }
+        else
+        {
+            StartDateCourse6.Text = string.Empty;
+            EndDateCourse6.Text = string.Empty;
         }
     }
 }

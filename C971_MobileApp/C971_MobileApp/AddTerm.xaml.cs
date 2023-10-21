@@ -22,7 +22,12 @@ public partial class AddTerm : ContentPage
     {
         if (string.IsNullOrWhiteSpace(Name.Text))
         {
-            await DisplayAlert("Invalid", "There are blank fields. Please fill in before continuing.", "Okay");
+            await DisplayAlert("Invalid", "Name is required.", "OK");
+            return;
+        }
+        if (EndDate.Date < StartDate.Date)
+        {
+            await DisplayAlert("Invalid", "End date must be after start date.", "OK");
             return;
         }
         Term TermInfo = App.TermData.AddTerm(new Term

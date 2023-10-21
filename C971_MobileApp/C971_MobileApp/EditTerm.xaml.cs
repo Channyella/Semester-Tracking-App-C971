@@ -17,8 +17,18 @@ public partial class EditTerm : ContentPage
         EndDate.Date = Term.EndDate;
         ActiveSwitch.IsToggled = Term.Active;
     }
-    public void EditTermButton(object sender, EventArgs e)
+    public async void EditTermButton(object sender, EventArgs e)
     {
+        if (string.IsNullOrWhiteSpace(Name.Text))
+        {
+            await DisplayAlert("Invalid", "Name is required.", "OK");
+            return;
+        }
+        if (EndDate.Date < StartDate.Date)
+        {
+            await DisplayAlert("Invalid", "End date must be after start date.", "OK");
+            return;
+        }
         App.TermData.EditTerm(new Term
         {
             Id = this.TermId,
@@ -28,6 +38,6 @@ public partial class EditTerm : ContentPage
             Active = ActiveSwitch.IsToggled
         }); ;
 
-        Navigation.PopAsync();
+        await Navigation.PopAsync();
     }
 }

@@ -44,9 +44,24 @@ public partial class NewCourse : ContentPage
 
     public async void AddCourseButton(object sender, EventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(Name.Text) || string.IsNullOrWhiteSpace(Description.Text))
+        if (string.IsNullOrWhiteSpace(Name.Text))
         {
-            await DisplayAlert("Invalid", "There are blank fields. Please fill in before continuing.", "Okay");
+            await DisplayAlert("Invalid", "Name is required.", "OK");
+            return;
+        }
+        if (string.IsNullOrWhiteSpace(Description.Text))
+        {
+            await DisplayAlert("Invalid", "Description is required", "OK");
+            return;
+        }
+        if (EndDate.Date < StartDate.Date)
+        {
+            await DisplayAlert("Invalid", "The end date must come before start date", "OK");
+            return;
+        }
+        if (InstructorName.SelectedItem == null) 
+        {
+            await DisplayAlert("Invalid", "Must have an instructor selected", "OK");
             return;
         }
         App.CourseData.AddCourse(new Course

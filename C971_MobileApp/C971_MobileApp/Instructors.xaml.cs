@@ -21,11 +21,15 @@ public partial class Instructors : ContentPage
 		Navigation.PushAsync(new AddInstructor());
 	}
 	// Deletes user from the SQLite Database
-	public void DeleteInstructor(object sender, EventArgs e)
+	public async void DeleteInstructor(object sender, EventArgs e)
 	{
-		ImageButton button = (ImageButton)sender;
-		App.InstructorData.DeleteInstructor((int)button.BindingContext);
-		RefreshInstructors();
+		bool deleteInstructor = await DisplayAlert("Delete Instructor", "Are you sure that you want to delete this instructor?", "Yes", "No");
+		if (deleteInstructor)
+		{
+			ImageButton button = (ImageButton)sender;
+			App.InstructorData.DeleteInstructor((int)button.BindingContext);
+			RefreshInstructors();
+		}
 	}
 
 	// Sends user to the Edit Instructor Page but also passes the Id.
