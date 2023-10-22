@@ -47,7 +47,7 @@ namespace C971_MobileApp.Data
             {
                 NotificationId = 4000 + assessment.Id,
                 Subtitle = "Assessment Notification",
-                Title = assessment.Name + "End Date",
+                Title = assessment.Name + " End Date",
                 Description = assessment.Name + " ends on " + assessment.endDate.ToShortDateString() + ".",
                 Schedule = new NotificationRequestSchedule
                 {

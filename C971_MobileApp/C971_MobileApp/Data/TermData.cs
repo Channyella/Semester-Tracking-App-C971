@@ -37,7 +37,7 @@ namespace C971_MobileApp.Data
             Init();
             NotificationRequest request = new NotificationRequest
             {
-                NotificationId = 3000 + term.Id,
+                NotificationId = 5000 + term.Id,
                 Subtitle = "Term Notification",
                 Title = term.Name + " Start Notification",
                 Description = term.Name + " starts on " + term.StartDate.ToShortDateString() + ".",
@@ -53,9 +53,9 @@ namespace C971_MobileApp.Data
             Init();
             NotificationRequest request = new NotificationRequest
             {
-                NotificationId = 4000 + term.Id,
+                NotificationId = 6000 + term.Id,
                 Subtitle = "Term Notification",
-                Title = term.Name + "End Notification",
+                Title = term.Name + " End Notification",
                 Description = term.Name + " ends on " + term.EndDate.ToShortDateString() + ".",
                 Schedule = new NotificationRequestSchedule
                 {

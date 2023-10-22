@@ -74,7 +74,7 @@ namespace C971_MobileApp.Data
             {
                 NotificationId = 2000 + course.Id,
                 Subtitle = "Course Notification",
-                Title = course.Name + "End Date",
+                Title = course.Name + " End Date",
                 Description = course.Name + " ends on " + course.EndDate.ToShortDateString() + ".",
                 Schedule = new NotificationRequestSchedule
                 {

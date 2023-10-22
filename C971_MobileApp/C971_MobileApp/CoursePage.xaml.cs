@@ -135,12 +135,16 @@ public partial class CoursePage : ContentPage
             StartDateOA.Text = assessmentOA.startDate.ToShortDateString();
             EndDateOA.Text = assessmentOA.endDate.ToShortDateString();
             DueDateOA.Text = assessmentOA.dueDate.ToShortDateString();
+            OAStartNotificationBtn.IsToggled = assessmentOA.StartDateNotifications;
+            OAEndNotificationBtn.IsToggled = assessmentOA.EndDateNotifications;
         } else
         {
             ObjectiveAssessment.Text = string.Empty;
             StartDateOA.Text = string.Empty; 
             EndDateOA.Text = string.Empty;
             DueDateOA.Text = string.Empty;
+            OAStartNotificationBtn.IsToggled = false;
+            OAEndNotificationBtn.IsToggled = false;
         }
         if (assessmentList.Any(assessment => assessment.Id == Course.PerformanceAssessment))
         {
@@ -149,13 +153,19 @@ public partial class CoursePage : ContentPage
             StartDatePA.Text = assessmentPA.startDate.ToShortDateString();
             EndDatePA.Text = assessmentPA.endDate.ToShortDateString();
             DueDatePA.Text = assessmentPA.dueDate.ToShortDateString();
+            PAStartNotificationBtn.IsToggled = assessmentPA.StartDateNotifications;
+            PAEndNotificationBtn.IsToggled = assessmentPA.EndDateNotifications;
         } else
         {
             PerformanceAssessment.Text = string.Empty;
             StartDatePA.Text = string.Empty;
             EndDatePA.Text = string.Empty; 
             DueDatePA.Text = string.Empty;
+            PAStartNotificationBtn.IsToggled = false;
+            PAEndNotificationBtn.IsToggled = false;
         }
+        StartDateNotifications.IsToggled = Course.StartDateNotifications;
+        EndDateNotifications.IsToggled = Course.EndDateNotifications;
 
     }
 

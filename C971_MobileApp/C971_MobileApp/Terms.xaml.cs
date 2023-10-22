@@ -9,7 +9,7 @@ public partial class Terms : ContentPage
     public ObservableCollection<Term> TermData { get; set; } = new();
 	public Terms()
 	{
-		InitializeComponent();
+        InitializeComponent();
         RefreshTerms();
 	}
 	public void AddTermButton(object sender, EventArgs e)
@@ -73,6 +73,12 @@ public partial class Terms : ContentPage
             term.Active = false;
             App.TermData.EditTerm(term);
         }
+    }
+    public void EditTermNotifications(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+        Term term = (Term)button.BindingContext;
+        Navigation.PushAsync(new AddEditNotifications(term));
     }
 
     private void updateSwitches()

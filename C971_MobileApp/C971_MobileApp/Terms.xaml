@@ -25,13 +25,14 @@
                           BackgroundColor="AliceBlue">
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -51,30 +52,51 @@
                                FontSize="Medium"
                                VerticalTextAlignment="Center"
                                HorizontalTextAlignment="End"/>
-                        <Switch BindingContext="{Binding .}"
+                            <Switch BindingContext="{Binding .}"
                                 IsToggled="{Binding Active}"
                                 OnColor="Blue"
                                 ThumbColor="LightBlue"
                                 Toggled="OneActiveTermOnly"
                                 HorizontalOptions="Start"/>
                         </HorizontalStackLayout>
-                        <Label Text="{Binding StartDate, StringFormat='{0:d}'}"
+                        <HorizontalStackLayout Grid.Row="2"
+                                               Grid.ColumnSpan="4"
+                                               HorizontalOptions="Start"
+                                               Spacing="5">
+                            <Switch OnColor="Blue"
+                                    ThumbColor="LightBlue"
+                                    HorizontalOptions="Start"
+                                    x:Name="TermStartNotificationBtn"
+                                    VerticalOptions="Center"
+                                    IsToggled="{Binding StartDateNotifications}"
+                                    IsEnabled="False"/>
+                            <Label Text="{Binding StartDate, StringFormat='{0:d}'}"
                                FontSize="Medium"
                                Grid.Row="2"
                                Grid.Column="0"
                                Grid.ColumnSpan="2"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="--"
+                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center"/>
+                            <Label Text="--"
                                FontSize="Medium"
                                Grid.Row="2"
                                Grid.Column="2"
                                HorizontalTextAlignment="Center"
-                               Margin="0,0,20,0"/>
-                        <Label Text="{Binding EndDate, StringFormat='{0:d}'}"
+                               VerticalOptions="Center"
+                               Margin="20,0,0,10"/>
+                            <Switch OnColor="Blue"
+                            ThumbColor="LightBlue"
+                            HorizontalOptions="Start"
+                            x:Name="TermEndNotificationBtn"
+                            IsToggled="{Binding EndDateNotifications}"
+                            IsEnabled="False"/>
+                            <Label Text="{Binding EndDate, StringFormat='{0:d}'}"
                                FontSize="Medium"
                                Grid.Row="2"
                                Grid.Column="3"
-                               Grid.ColumnSpan="2"/>
+                               Grid.ColumnSpan="2"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
                         <Button Text="View Courses"
                                 x:Name="CourseButton"
                                 Clicked="ViewCourses"
@@ -104,6 +126,17 @@
                                 WidthRequest="75"
                                 BindingContext="{Binding Id}"
                                 Clicked="DeleteTerm"/>
+                        <Button Text="Edit Notifications"
+                                x:Name="EditNotifications"
+                                WidthRequest="200"
+                                FontSize="Medium"
+                                Clicked="EditTermNotifications"
+                                Margin="10"
+                                HeightRequest="45"
+                                Grid.Row="4"
+                                Grid.ColumnSpan="4"
+                                HorizontalOptions="Center"
+                                BindingContext="{Binding .}"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -111,9 +144,10 @@
         <Button Text="Add Term"
                 x:Name="addTermBtn"
                 WidthRequest="150"
-                HorizontalOptions="Start"
                 Clicked="AddTermButton"
                 Margin="10"
-                FontSize="Medium"/>
+                FontSize="Medium"
+                HeightRequest="45"
+                HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>
