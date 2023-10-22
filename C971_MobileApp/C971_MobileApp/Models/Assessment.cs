@@ -24,12 +24,17 @@ namespace C971_MobileApp.Models
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
         public DateTime dueDate { get; set; }
+        public bool StartDateNotifications { get; set; }
+        public DateTime StartDateNotifier { get; set; }
+        public bool EndDateNotifications { get; set; }
+        public DateTime EndDateNotifier { get; set; }
 
         public Assessment()
         {
 
         }
-        public Assessment(int id, Type typeName, string name, DateTime startDate, DateTime endDate, DateTime dueDate)
+        public Assessment(int id, Type typeName, string name, DateTime startDate, DateTime endDate, DateTime dueDate,
+            bool startDateNotifications, DateTime startTimeNotifier, bool endDateNotifications, DateTime endTimeNotifier)
         {
             Id = id;
             TypeName = typeName;
@@ -37,6 +42,10 @@ namespace C971_MobileApp.Models
             this.startDate = startDate;
             this.endDate = endDate;
             this.dueDate = dueDate;
+            StartDateNotifications = startDateNotifications;
+            this.StartDateNotifier = startTimeNotifier;
+            EndDateNotifications = endDateNotifications;
+            EndDateNotifier = EndDateNotifier;
         }
     }
 }

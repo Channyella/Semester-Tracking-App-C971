@@ -49,6 +49,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
             <Label x:Name="Name"
@@ -267,7 +269,10 @@
                                        Margin="0,0,0,0">
                     <Switch OnColor="Blue"
                             ThumbColor="LightBlue"
-                            HorizontalOptions="Start"/>
+                            HorizontalOptions="Start"
+                            x:Name="OAStartNotificationBtn"
+                            IsToggled="False"
+                            IsEnabled="False"/>
                     <Entry x:Name="StartDateOA"
                    Placeholder="mm/dd/yyyy"
                    Margin="0,0,0,0"
@@ -283,7 +288,10 @@
                     <Switch OnColor="Blue"
                             ThumbColor="LightBlue"
                             HorizontalOptions="Start"
-                            Margin="0,0,0,0"/>
+                            Margin="0,0,0,0"
+                            x:Name="OAEndNotificationBtn"
+                            IsToggled="False"
+                            IsEnabled="False"/>
                     <Entry x:Name="EndDateOA"
                    Placeholder="mm/dd/yyyy"
                    Margin="0,0,0,0"
@@ -314,22 +322,31 @@
                         HorizontalOptions="Center"
                         HeightRequest="45"
                         Margin="0,10,0,10"/>
+                <Button Text="Edit Notifications"
+                        x:Name="EditOANotificationsBtn"
+                        Clicked="EditOANotifications"
+                        Grid.Row="19"
+                        Grid.ColumnSpan="5"
+                        HorizontalOptions="Center"
+                        FontSize="Medium"
+                        WidthRequest="175"
+                        Margin="0,10,0,10"/>
                 <Rectangle HeightRequest="1" 
                        BackgroundColor="LightGrey"
                        WidthRequest="700"
                        Grid.ColumnSpan="4"
-                       Grid.Row="18"
+                       Grid.Row="19"
                        VerticalOptions="End"/>
                 
                 <!-- Project Assessment-->
                 <Label Text="Performance Assessment"
                            VerticalTextAlignment="End"
-                       Grid.Row="19"
+                       Grid.Row="20"
                        Grid.ColumnSpan="5"
                        HorizontalOptions="Center"
                        FontSize="Medium"
                        Margin="0,10,0,0"/>
-                <HorizontalStackLayout Grid.Row="20"
+                <HorizontalStackLayout Grid.Row="21"
                                        Spacing="5"
                                        Grid.ColumnSpan="5"
                                        HorizontalOptions="Center">
@@ -340,11 +357,11 @@
                        TextColor="Black"
                        Grid.Column="0"
                        Grid.ColumnSpan="2"
-                       Grid.Row="13"
+                       Grid.Row="21"
                        IsReadOnly="True"
                            Margin="0,0,30,0"/>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Row="21"
+                <HorizontalStackLayout Grid.Row="22"
                                        Grid.ColumnSpan="5"
                                        Spacing="5"
                                        HorizontalOptions="Center">
@@ -357,19 +374,22 @@
                    IsReadOnly="True"
                    FontSize="Medium"/>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Row="22"
+                <HorizontalStackLayout Grid.Row="23"
                                       Spacing="5">
                     <Label Text="Start And End Date Notifications: "
                           FontSize="Medium"
                           VerticalOptions="Center"
                           Margin="40,0,0,0"/>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout Grid.Row="23" 
+                <HorizontalStackLayout Grid.Row="24" 
                                       Spacing="10"
                                       Margin="0,0,0,0">
                     <Switch OnColor="Blue"
                            ThumbColor="LightBlue"
-                           HorizontalOptions="Start"/>
+                           HorizontalOptions="Start"
+                           x:Name="PAStartNotificationBtn"
+                            IsToggled="False"
+                            IsEnabled="False"/>
                     <Entry x:Name="StartDatePA"
                   Placeholder="mm/dd/yyyy"
                   Margin="0,0,0,0"
@@ -381,7 +401,10 @@
                     <Switch OnColor="Blue"
                            ThumbColor="LightBlue"
                            HorizontalOptions="Start"
-                           Margin="0,0,0,0"/>
+                           Margin="0,0,0,0"
+                            x:Name="PAEndNotificationBtn"
+                            IsToggled="False"
+                            IsEnabled="False"/>
                     <Entry x:Name="EndDatePA"
                   Placeholder="mm/dd/yyyy"
                   Margin="0,0,0,0"
@@ -393,7 +416,7 @@
                 <Button Text="Edit PA"
                             x:Name="EditPABtn"
                             Clicked="EditPA"
-                            Grid.Row="24"
+                            Grid.Row="25"
                             Grid.Column="0"
                                 Grid.ColumnSpan="5"
                                 FontSize="Medium"
@@ -404,7 +427,7 @@
                 <Button Text="Delete PA"
                             x:Name="DeletePABtn"
                             Clicked="DeletePA"
-                            Grid.Row="24"
+                            Grid.Row="25"
                             Grid.Column="2"
                         Grid.ColumnSpan="5"
                         FontSize="Medium"
@@ -412,20 +435,37 @@
                         HorizontalOptions="Center"
                         HeightRequest="45"
                         Margin="0,10,0,10"/>
+                <Button Text="Edit Notifications"
+                        x:Name="EditPANotificationsBtn"
+                        Clicked="EditPANotifications"
+                        Grid.Row="26"
+                        Grid.ColumnSpan="5"
+                        HorizontalOptions="Center"
+                        WidthRequest="175"
+                        Margin="0,10,0,20"
+                        FontSize="Medium"/>
                 <Rectangle HeightRequest="1" 
                        BackgroundColor="LightGrey"
                        WidthRequest="700"
                        Grid.ColumnSpan="4"
-                       Grid.Row="24"
+                       Grid.Row="26"
                        VerticalOptions="End"/>
 
             </Grid>
         </ScrollView>
-        <Button Text="Edit Course"
+        <HorizontalStackLayout>
+            <Button Text="Edit Course"
                 x:Name="EditCourseBtn"
-                WidthRequest="200"
+                WidthRequest="150"
                 FontSize="Medium"
                 Clicked="EditCourse"
+                Margin="10,10,20,0"/>
+        <Button Text="Edit Notifications"
+                x:Name="EditNotifications"
+                WidthRequest="200"
+                FontSize="Medium"
+                Clicked="EditCourseNotifications"
                 Margin="0,10,0,0"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

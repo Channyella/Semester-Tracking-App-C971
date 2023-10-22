@@ -1,4 +1,5 @@
 ﻿using C971_MobileApp.Models;
+using Plugin.LocalNotification;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace C971_MobileApp.Data
     public class CourseData
     {
         string dbPath;
+        Course course;
         InstructorData InstructorData;
         AssessmentData AssessmentData;
         private SQLiteConnection conn;
@@ -48,6 +50,40 @@ namespace C971_MobileApp.Data
                 AddCourse(defaultCourse);
             }
         }
+        
+        public NotificationRequest SetStartNotifications(Course course)
+        {
+            Init();
+            NotificationRequest request = new NotificationRequest
+            {
+                NotificationId = 1000 + course.Id,
+                Subtitle = "Course Notification",
+                Title = "Starting " + course.Name,
+                Description = course.Name + " starts on " + course.StartDate.ToShortDateString() + ".",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = course.StartDateNotifier,
+                }
+            };
+            return request;
+        }
+        public NotificationRequest SetEndNotifications(Course course)
+        {
+            Init();
+            NotificationRequest request = new NotificationRequest
+            {
+                NotificationId = 2000 + course.Id,
+                Subtitle = "Course Notification",
+                Title = course.Name + "End Date",
+                Description = course.Name + " ends on " + course.EndDate.ToShortDateString() + ".",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = course.EndDateNotifier,
+                }
+            };
+            return request;
+        }
+
         public List<Course> GetAllCourses()
         {
             Init();

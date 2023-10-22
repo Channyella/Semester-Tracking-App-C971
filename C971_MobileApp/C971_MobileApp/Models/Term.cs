@@ -24,13 +24,18 @@ namespace C971_MobileApp.Models
         public int Course4 { get; set; }
         public int Course5 { get; set; }
         public int Course6 { get; set; }
+        public bool StartDateNotifications { get; set; }
+        public DateTime StartDateNotifier { get; set; }
+        public bool EndDateNotifications { get; set; }
+        public DateTime EndDateNotifier { get; set; }
 
         public Term()
         {
 
         }
        
-        public Term(int id, string name, int course1, int course2, int course3, int course4, int course5, int course6, DateTime startDate, DateTime endDate, bool active)
+        public Term(int id, string name, int course1, int course2, int course3, int course4, int course5, int course6, DateTime startDate, DateTime endDate, bool active,
+            bool startDateNotifications, DateTime startDateNotifier, bool endDateNotifications, DateTime endDateNotifier)
         {
             Id = id;
             Name = name;
@@ -43,6 +48,10 @@ namespace C971_MobileApp.Models
             StartDate = startDate;
             EndDate = endDate;
             Active = active;
+            StartDateNotifications = startDateNotifications;
+            EndDateNotifications = endDateNotifications;
+            EndDateNotifier = endDateNotifier;
+            StartDateNotifier = startDateNotifier;
         }
     }
 }

@@ -23,11 +23,18 @@ public partial class Instructors : ContentPage
 	// Deletes user from the SQLite Database
 	public async void DeleteInstructor(object sender, EventArgs e)
 	{
-		bool deleteInstructor = await DisplayAlert("Delete Instructor", "Are you sure that you want to delete this instructor?", "Yes", "No");
+        ImageButton button = (ImageButton)sender;
+		int instructorId = (int)button.BindingContext;
+		List<Course> courseList = App.CourseData.GetCoursesByInstructorId(instructorId);
+		if (courseList.Count > 0)
+		{
+			await DisplayAlert("Cannot Delete Instructor", "Please delete courses or reassign them to different instructors before deleting this instructor.", "OK");
+			return;
+		}
+        bool deleteInstructor = await DisplayAlert("Delete Instructor", "Are you sure that you want to delete this instructor?", "Yes", "No");
 		if (deleteInstructor)
 		{
-			ImageButton button = (ImageButton)sender;
-			App.InstructorData.DeleteInstructor((int)button.BindingContext);
+			App.InstructorData.DeleteInstructor(instructorId);
 			RefreshInstructors();
 		}
 	}

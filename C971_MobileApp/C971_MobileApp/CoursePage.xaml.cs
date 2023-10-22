@@ -1,4 +1,5 @@
 using C971_MobileApp.Models;
+using Plugin.LocalNotification;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 
@@ -27,6 +28,15 @@ public partial class CoursePage : ContentPage
         ActiveSwitch.IsToggled = Course.Status;
         EditCourseBtn.BindingContext = Course.Id;
         Notes.Text = Course.CourseNotes;
+        StartDateNotifications.IsToggled = Course.StartDateNotifications;
+        EndDateNotifications.IsToggled = Course.EndDateNotifications;
+        Assessment OAObj = App.AssessmentData.GetAssessmentById(Course.ObjectiveAssessment);
+        OAStartNotificationBtn.IsToggled = OAObj.StartDateNotifications;
+        OAEndNotificationBtn.IsToggled = OAObj.EndDateNotifications;
+        Assessment PAObj = App.AssessmentData.GetAssessmentById(Course.PerformanceAssessment);
+        PAStartNotificationBtn.IsToggled = PAObj.StartDateNotifications;
+        PAEndNotificationBtn.IsToggled = PAObj.EndDateNotifications;
+
         RefreshAssessments();
 
     }
@@ -37,6 +47,23 @@ public partial class CoursePage : ContentPage
         int buttonId = (int)button.BindingContext;
 
         Navigation.PushAsync(new EditTerm(buttonId));
+    }
+    public void EditCourseNotifications(object sender, EventArgs e)
+    {
+        Course thisCourse = this.Course;
+        Navigation.PushAsync(new AddEditNotifications(thisCourse));
+    }
+    public void EditOANotifications(object sender, EventArgs e)
+    {
+        int OAId = this.Course.ObjectiveAssessment;
+        Assessment OAObj = App.AssessmentData.GetAssessmentById(OAId);
+        Navigation.PushAsync(new AddEditNotifications(OAObj));
+    }
+    public void EditPANotifications(object sender, EventArgs e)
+    {
+        int PAId = this.Course.PerformanceAssessment;
+        Assessment PAObj = App.AssessmentData.GetAssessmentById(PAId);
+        Navigation.PushAsync(new AddEditNotifications(PAObj));
     }
     public void ShareCourseNotes(object sender, EventArgs e)
     {
@@ -73,6 +100,7 @@ public partial class CoursePage : ContentPage
         bool isOA = false;
         Navigation.PushAsync(new AddEditAssessment(Course, isOA));
     }
+
     public async void DeleteOA(object sender, EventArgs e)
     {
         bool deleteOA = await DisplayAlert("Delete OA", "Are you sure you want to delete this objective assessment?", "Yes", "No");
@@ -91,6 +119,7 @@ public partial class CoursePage : ContentPage
             RefreshAssessments();
         }
     }
+
     protected override void OnAppearing()
     {
         base.OnAppearing();

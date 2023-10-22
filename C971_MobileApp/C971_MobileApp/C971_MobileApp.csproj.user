@@ -11,6 +11,9 @@
     <MauiXaml Update="AddEditAssessment.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="AddEditNotifications.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="AddInstructor.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

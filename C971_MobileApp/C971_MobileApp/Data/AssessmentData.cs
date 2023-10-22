@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using C971_MobileApp.Models;
+using Plugin.LocalNotification;
 using SQLite;
 
 namespace C971_MobileApp.Data
@@ -23,6 +24,38 @@ namespace C971_MobileApp.Data
         {
             this.dbPath = dbPath;
         }
+        public NotificationRequest SetStartNotifications(Assessment assessment)
+        {
+            Init();
+            NotificationRequest request = new NotificationRequest
+            {
+                NotificationId = 3000 + assessment.Id,
+                Subtitle = "Assessment Notification",
+                Title = assessment.Name + " Start Notification",
+                Description = assessment.Name + " starts on " + assessment.startDate.ToShortDateString() + ".",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = assessment.StartDateNotifier,
+                }
+            };
+            return request;
+        }
+        public NotificationRequest SetEndNotifications(Assessment assessment)
+        {
+            Init();
+            NotificationRequest request = new NotificationRequest
+            {
+                NotificationId = 4000 + assessment.Id,
+                Subtitle = "Assessment Notification",
+                Title = assessment.Name + "End Date",
+                Description = assessment.Name + " ends on " + assessment.endDate.ToShortDateString() + ".",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = assessment.EndDateNotifier,
+                }
+            };
+            return request;
+        }
         public void Init()
         {
             conn = new SQLiteConnection(this.dbPath);
@@ -40,7 +73,7 @@ namespace C971_MobileApp.Data
         }
         public Assessment AddAssessment(Assessment assessment)
         {
-            conn = new SQLiteConnection(this.dbPath);
+            Init();
             conn.Insert(assessment);
             return assessment;
         }

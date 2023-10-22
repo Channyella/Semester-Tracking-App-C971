@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using C971_MobileApp.Models;
+using Plugin.LocalNotification;
 using SQLite;
 
 namespace C971_MobileApp.Data
@@ -30,6 +31,38 @@ namespace C971_MobileApp.Data
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<Term>();
+        }
+        public NotificationRequest SetStartNotifications(Term term)
+        {
+            Init();
+            NotificationRequest request = new NotificationRequest
+            {
+                NotificationId = 3000 + term.Id,
+                Subtitle = "Term Notification",
+                Title = term.Name + " Start Notification",
+                Description = term.Name + " starts on " + term.StartDate.ToShortDateString() + ".",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = term.StartDateNotifier,
+                }
+            };
+            return request;
+        }
+        public NotificationRequest SetEndNotifications(Term term)
+        {
+            Init();
+            NotificationRequest request = new NotificationRequest
+            {
+                NotificationId = 4000 + term.Id,
+                Subtitle = "Term Notification",
+                Title = term.Name + "End Notification",
+                Description = term.Name + " ends on " + term.EndDate.ToShortDateString() + ".",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = term.EndDateNotifier,
+                }
+            };
+            return request;
         }
         public void AddDefaultTerm(Term defaultTerm)
         {

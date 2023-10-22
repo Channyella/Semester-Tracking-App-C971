@@ -81,8 +81,8 @@
                                 Padding="10, 10, 10, 10"
                                 Margin="10, 0, 10, 0"
                                 Aspect="AspectFill"
-                                    HeightRequest="75"
-                                    WidthRequest="75"
+                                    HeightRequest="85"
+                                    WidthRequest="85"
                                 BindingContext="{Binding Id}"
                                 Clicked="DeleteInstructor"/>
                     </Grid>

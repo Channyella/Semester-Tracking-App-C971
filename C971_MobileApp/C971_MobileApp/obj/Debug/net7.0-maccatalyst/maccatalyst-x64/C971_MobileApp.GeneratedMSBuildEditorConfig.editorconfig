@@ -16,6 +16,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddEditAsse
 build_metadata.AdditionalFiles.TargetPath = AddEditAssessment.xaml
 build_metadata.AdditionalFiles.RelativePath = AddEditAssessment.xaml
 
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddEditNotifications.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddEditNotifications.xaml
+build_metadata.AdditionalFiles.TargetPath = AddEditNotifications.xaml
+build_metadata.AdditionalFiles.RelativePath = AddEditNotifications.xaml
+
 [C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddInstructor.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddInstructor.xaml

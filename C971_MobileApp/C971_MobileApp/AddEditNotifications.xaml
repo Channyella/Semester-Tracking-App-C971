@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971_MobileApp.AddEditNotifications"
+             Title="Set Notifications"
+             x:Name="AddEditNotificationsXaml"
+             BindingContext="{x:Reference AddEditNotificationsXaml}">
+    <VerticalStackLayout>
+        <Grid HorizontalOptions="CenterAndExpand"
+              WidthRequest="300"
+              x:Name="CourseItem"
+              Padding="10"
+              Background="Transparent">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Label Text="Set Notifications:"
+                   FontSize="Large"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="3"
+                   HorizontalOptions="Center"/>
+
+            <HorizontalStackLayout
+                       Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Grid.Column="0"
+                HorizontalOptions="Center">
+                <Label Text="Activate Start Date Notifications:"
+                       FontSize="Medium"/>
+            </HorizontalStackLayout>
+            <Switch OnColor="Blue"
+                        x:Name="StartDateToggle"
+                        ThumbColor="LightBlue"
+                        HorizontalOptions="Center"
+                        Margin="0,0,0,0"
+                        IsToggled="False"
+                        IsEnabled="True"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"/>
+
+            <HorizontalStackLayout
+                       Grid.Row="3"
+                Grid.ColumnSpan="3"
+                Spacing="5"
+                HorizontalOptions="Center">
+                <Label Text="Set Start Date and Time:"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Medium"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Row="4"
+                                    Grid.ColumnSpan="3"
+                                    Spacing="5"
+                                    HorizontalOptions="Center">
+                <DatePicker x:Name="StartDate"
+                        MinimumDate="01/01/2023"
+                        MaximumDate="12/31/2099"
+                        HorizontalOptions="Fill"
+                            FontSize="Medium"/>
+                <TimePicker Time="12:00"
+                            x:Name="StartTimeAlert"
+                            FontSize="Medium"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                       Grid.Row="5"
+                Grid.ColumnSpan="3"
+                HorizontalOptions="Center"
+                Margin="0,20,0,0">
+                <Label Text="Activate End Date Notifications:"
+                       FontSize="Medium"/>
+            </HorizontalStackLayout>
+            <Switch OnColor="Blue"
+                        x:Name="EndDateToggle"
+                        ThumbColor="LightBlue"
+                        HorizontalOptions="Center"
+                        Margin="0,0,0,0"
+                        IsToggled="False"
+                        IsEnabled="True"
+                        Grid.Row="6"
+                        Grid.ColumnSpan="3"/>
+
+                <HorizontalStackLayout
+                       Grid.Row="7"
+                Grid.ColumnSpan="3"
+                Spacing="5"
+                HorizontalOptions="Center">
+                <Label Text="Set End Date and Time:"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Medium"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Row="8"
+                Grid.ColumnSpan="3"
+                Spacing="5"
+                HorizontalOptions="Center">
+                <DatePicker x:Name="EndDate"
+                        MinimumDate="01/01/2023"
+                        MaximumDate="12/31/2099"
+                        HorizontalOptions="Fill"
+                            FontSize="Medium"/>
+                <TimePicker Time="12:00"
+                            x:Name="EndTimeAlert"
+                            FontSize="Medium"/>
+            </HorizontalStackLayout>
+            <Button Grid.Row="9"
+                    Grid.ColumnSpan="3"
+                    WidthRequest="170"
+                    Text="Set Notifications"
+                    x:Name="SetNotificationsBtn"
+                    Clicked="SetNotifications"
+                    FontSize="Medium"
+                    Margin="0,20,0,0"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

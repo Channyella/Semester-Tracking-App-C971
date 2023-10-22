@@ -1,4 +1,5 @@
 using C971_MobileApp.Models;
+using Plugin.LocalNotification;
 using System.Collections.ObjectModel;
 using static C971_MobileApp.Models.Course;
 
@@ -42,6 +43,7 @@ public partial class NewCourse : ContentPage
         Date = DateTime.Now
     };
 
+
     public async void AddCourseButton(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(Name.Text))
@@ -71,8 +73,8 @@ public partial class NewCourse : ContentPage
             StartDate = StartDate.Date,
             EndDate = EndDate.Date,
             InstructorId = this.InstructorId,
-            Status = ActiveSwitch.IsToggled
-        }) ;
+            Status = ActiveSwitch.IsToggled,
+        }); ;
         await Navigation.PopAsync();
     }
 
