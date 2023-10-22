@@ -27,11 +27,6 @@
           ContentTemplate="{DataTemplate local:Instructors}"
           Route="Instructors"/>
 
-        <ShellContent
-            Title="Settings"
-             Icon="settings.svg "
-             ContentTemplate="{DataTemplate local:Settings}"
-            Route="Settings"/>
 
     </TabBar>
 
