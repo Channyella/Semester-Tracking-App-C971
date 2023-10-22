@@ -10,6 +10,8 @@ public partial class NewCourse : ContentPage
 	public int InstructorId { get; set; }
 	public Instructor Instructor { get; set; }
     public ObservableCollection<Instructor> InstructorList { get; set; } = new();
+    public ObservableCollection<string> StatusNames { get; set; } = GetStatusList();
+
     public NewCourse(int InstructorId)
 	{
 		this.InstructorId = InstructorId;
@@ -53,17 +55,22 @@ public partial class NewCourse : ContentPage
         }
         if (string.IsNullOrWhiteSpace(Description.Text))
         {
-            await DisplayAlert("Invalid", "Description is required", "OK");
+            await DisplayAlert("Invalid", "Description is required.", "OK");
             return;
         }
         if (EndDate.Date < StartDate.Date)
         {
-            await DisplayAlert("Invalid", "The end date must come before start date", "OK");
+            await DisplayAlert("Invalid", "The end date must come before start date.", "OK");
+            return;
+        }
+        if (StatusPicker.SelectedItem == null)
+        {
+            await DisplayAlert("Invalid", "Must have a status selected.", "OK");
             return;
         }
         if (InstructorName.SelectedItem == null) 
         {
-            await DisplayAlert("Invalid", "Must have an instructor selected", "OK");
+            await DisplayAlert("Invalid", "Must have an instructor selected.", "OK");
             return;
         }
         App.CourseData.AddCourse(new Course
@@ -73,8 +80,8 @@ public partial class NewCourse : ContentPage
             StartDate = StartDate.Date,
             EndDate = EndDate.Date,
             InstructorId = this.InstructorId,
-            Status = ActiveSwitch.IsToggled,
-        }); ;
+            Status = Course.GetStatusFromName(StatusPicker.Items[StatusPicker.SelectedIndex])
+        }) ;
         await Navigation.PopAsync();
     }
 

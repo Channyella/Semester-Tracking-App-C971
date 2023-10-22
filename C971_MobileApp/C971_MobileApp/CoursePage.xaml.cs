@@ -25,18 +25,11 @@ public partial class CoursePage : ContentPage
         InstructorName.Text = instructor.Name;
         InstructorEmail.Text = instructor.Email;
         InstructorPhoneNumber.Text = instructor.PhoneNumber;
-        ActiveSwitch.IsToggled = Course.Status;
+        CourseStatus.Text = Course.GetStatusName(Course.Status);
         EditCourseBtn.BindingContext = Course.Id;
         Notes.Text = Course.CourseNotes;
         StartDateNotifications.IsToggled = Course.StartDateNotifications;
         EndDateNotifications.IsToggled = Course.EndDateNotifications;
-        Assessment OAObj = App.AssessmentData.GetAssessmentById(Course.ObjectiveAssessment);
-        OAStartNotificationBtn.IsToggled = OAObj.StartDateNotifications;
-        OAEndNotificationBtn.IsToggled = OAObj.EndDateNotifications;
-        Assessment PAObj = App.AssessmentData.GetAssessmentById(Course.PerformanceAssessment);
-        PAStartNotificationBtn.IsToggled = PAObj.StartDateNotifications;
-        PAEndNotificationBtn.IsToggled = PAObj.EndDateNotifications;
-
         RefreshAssessments();
 
     }
@@ -46,7 +39,7 @@ public partial class CoursePage : ContentPage
 
         int buttonId = (int)button.BindingContext;
 
-        Navigation.PushAsync(new EditTerm(buttonId));
+        Navigation.PushAsync(new EditCourse(buttonId));
     }
     public void EditCourseNotifications(object sender, EventArgs e)
     {
@@ -54,16 +47,26 @@ public partial class CoursePage : ContentPage
         Navigation.PushAsync(new AddEditNotifications(thisCourse));
     }
     public void EditOANotifications(object sender, EventArgs e)
-    {
+    { 
         int OAId = this.Course.ObjectiveAssessment;
         Assessment OAObj = App.AssessmentData.GetAssessmentById(OAId);
-        Navigation.PushAsync(new AddEditNotifications(OAObj));
+        if (OAObj != null)
+        {
+            Navigation.PushAsync(new AddEditNotifications(OAObj));
+            return;
+        }
+        DisplayAlert("Error", "No objective assessment set.", "OK");
     }
     public void EditPANotifications(object sender, EventArgs e)
     {
         int PAId = this.Course.PerformanceAssessment;
         Assessment PAObj = App.AssessmentData.GetAssessmentById(PAId);
-        Navigation.PushAsync(new AddEditNotifications(PAObj));
+        if (PAObj != null)
+        {
+            Navigation.PushAsync(new AddEditNotifications(PAObj));
+            return;
+        }
+        DisplayAlert("Error", "No performance assessment set.", "OK");
     }
     public void ShareCourseNotes(object sender, EventArgs e)
     {
@@ -102,7 +105,13 @@ public partial class CoursePage : ContentPage
     }
 
     public async void DeleteOA(object sender, EventArgs e)
-    {
+    {    
+      Assessment assessmentOA = App.AssessmentData.GetAssessmentById(Course.ObjectiveAssessment);
+      if (assessmentOA == null)
+        {
+            await DisplayAlert("Error", "No objective assesssment is set.", "OK");
+            return;
+        }
         bool deleteOA = await DisplayAlert("Delete OA", "Are you sure you want to delete this objective assessment?", "Yes", "No");
         if (deleteOA)
         {
@@ -112,6 +121,12 @@ public partial class CoursePage : ContentPage
     }
     public async void DeletePA(object sender, EventArgs e)
     {
+        Assessment assessmentPA = App.AssessmentData.GetAssessmentById(Course.PerformanceAssessment);
+        if (assessmentPA == null)
+        {
+            await DisplayAlert("Error", "No performance assesssment is set.", "OK");
+            return;
+        }
         bool deletePA = await DisplayAlert("Delete PA", "Are you sure you want to delete this performance assessment?", "Yes", "No");
         if (deletePA)
         {

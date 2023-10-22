@@ -62,14 +62,13 @@
             <HorizontalStackLayout Grid.Row="1"
                                    Grid.ColumnSpan="5"
                                    HorizontalOptions="Center">
-                <Label Text="Active Course: "
+                <Label Text="Course Status: "
                  FontSize="Medium"
                  VerticalTextAlignment="Center"/>
-            <Switch IsEnabled="False"
-                  x:Name="ActiveSwitch"
-                  OnColor="Blue"
-                  ThumbColor="LightBlue"/>
-            </HorizontalStackLayout>
+                    <Label x:Name="CourseStatus"
+                        FontSize="Medium"
+                           VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
                 <Label Text="Start and End Course Notifications:"
                        Grid.Row="2"
                        Grid.ColumnSpan="5"

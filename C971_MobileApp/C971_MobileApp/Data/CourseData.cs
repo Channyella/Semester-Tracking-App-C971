@@ -18,7 +18,7 @@ namespace C971_MobileApp.Data
         AssessmentData AssessmentData;
         private SQLiteConnection conn;
         public List<Course> courseList = new List<Course>();
-        public Course defaultCourse = new Course { Id = 1, Name = "Math 1010", Description = "Beginning and Basic Algebra to help students build the fundementals of math.", Status = true, StartDate = DateTime.UtcNow, EndDate = DateTime.Parse("12/31/2023") };
+        public Course defaultCourse = new Course { Id = 1, Name = "Math 1010", Description = "Beginning and Basic Algebra to help students build the fundementals of math.", Status = Status.InProgress, StartDate = DateTime.UtcNow, EndDate = DateTime.Parse("12/31/2023") };
 
         public CourseData()
         {
@@ -97,7 +97,7 @@ namespace C971_MobileApp.Data
         public List<Course> GetActiveCoursesByActiveTerm(Term term)
         {
             Init();
-            return conn.Query<Course>("SELECT * FROM course WHERE id IN (?, ?, ?, ?, ?, ?) AND status = 1", term.Course1, term.Course2, term.Course3, term.Course4, term.Course5, term.Course6);
+            return conn.Query<Course>("SELECT * FROM course WHERE id IN (?, ?, ?, ?, ?, ?) AND status = 0", term.Course1, term.Course2, term.Course3, term.Course4, term.Course5, term.Course6);
         }
         public Course AddCourse(Course course)
         {

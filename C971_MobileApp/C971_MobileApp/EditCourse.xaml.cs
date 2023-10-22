@@ -9,6 +9,7 @@ public partial class EditCourse : ContentPage
 	public Course Course { get; set; }
 	public Instructor Instructor { get; set; }
     public ObservableCollection<Instructor> InstructorList { get; set; } = new();
+    public ObservableCollection<string> StatusNames { get; set; } = Course.GetStatusList();
     public EditCourse(int courseId)
 	{
 		this.CourseId = courseId;
@@ -25,7 +26,7 @@ public partial class EditCourse : ContentPage
         }
         Instructor = InstructorList.Single(instructor => instructor.Id == Course.InstructorId);
         InstructorName.SelectedItem = Instructor;
-		ActiveSwitch.IsToggled = Course.Status;
+		StatusPicker.SelectedIndex = StatusNames.IndexOf(Course.GetStatusName(Course.Status));
 	}
 	public async void EditCourseButton(object sender, EventArgs e)
 	{
@@ -57,7 +58,7 @@ public partial class EditCourse : ContentPage
 			StartDate = StartDate.Date,
 			EndDate = EndDate.Date,
 			InstructorId = Course.InstructorId,
-            Status = ActiveSwitch.IsToggled,
+            Status = Course.GetStatusFromName(StatusPicker.Items[StatusPicker.SelectedIndex])
         });
 		await Navigation.PopAsync();
 	}
