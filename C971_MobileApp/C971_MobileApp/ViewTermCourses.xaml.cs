@@ -25,6 +25,11 @@ public partial class ViewTermCourses : ContentPage
 	}
 	public async void SetCourse1Btn(object sender, EventArgs e)
 	{
+        if (Course1.SelectedItem == null)
+        {
+            await DisplayAlert("Error","Need to select a class to set first.", "OK");
+            return;
+        }
         bool changeCourse = await DisplayAlert("Setting New Course", "Did you mean to set a new course?", "Yes", "No");
         if (changeCourse)
         {
@@ -39,6 +44,11 @@ public partial class ViewTermCourses : ContentPage
 	}
     public async void SetCourse2Btn(object sender, EventArgs e)
     {
+        if (Course2.SelectedItem == null)
+        {
+            await DisplayAlert("Error", "Need to select a class to set first.", "OK");
+            return;
+        }
         bool changeCourse = await DisplayAlert("Setting New Course", "Did you mean to set a new course?", "Yes", "No");
         if (changeCourse)
         {
@@ -50,36 +60,59 @@ public partial class ViewTermCourses : ContentPage
     }
     public async void SetCourse3Btn(object sender, EventArgs e)
     {
+        if (Course3.SelectedItem == null)
+        {
+            await DisplayAlert("Error", "Need to select a class to set first.", "OK");
+            return;
+        }
         bool changeCourse = await DisplayAlert("Setting New Course", "Did you mean to set a new course?", "Yes", "No");
         if (changeCourse)
         {
             Term.Course3 = ((Course)Course3.SelectedItem).Id;
             App.TermData.EditTerm(Term);
+            RefreshCourses();
         }
         else { return; }
     }
     public async void SetCourse4Btn(object sender, EventArgs e)
     {
+        if (Course4.SelectedItem == null)
+        {
+            await DisplayAlert("Error", "Need to select a class to set first.", "OK");
+            return;
+        }
         bool changeCourse = await DisplayAlert("Setting New Course", "Did you mean to set a new course?", "Yes", "No");
         if (changeCourse)
         {
             Term.Course4 = ((Course)Course4.SelectedItem).Id;
             App.TermData.EditTerm(Term);
+            RefreshCourses();
         }
         else { return; }
     }
         public async void SetCourse5Btn(object sender, EventArgs e)
-    {
+        {
+        if (Course5.SelectedItem == null)
+        {
+            await DisplayAlert("Error", "Need to select a class to set first.", "OK");
+            return;
+        }
         bool changeCourse = await DisplayAlert("Setting New Course", "Did you mean to set a new course?", "Yes", "No");
         if (changeCourse)
         {
             Term.Course5 = ((Course)Course5.SelectedItem).Id;
             App.TermData.EditTerm(Term);
+            RefreshCourses();
         }
         else { return; }
     }
     public async void SetCourse6Btn(object sender, EventArgs e)
     {
+        if (Course6.SelectedItem == null)
+        {
+            await DisplayAlert("Error", "Need to select a class to set first.", "OK");
+            return;
+        }
         bool changeCourse = await DisplayAlert("Setting New Course", "Did you mean to set a new course?", "Yes", "No");
         if (changeCourse)
         {
@@ -192,7 +225,7 @@ public partial class ViewTermCourses : ContentPage
         if (CourseList.Any(course => course.Id == Term.Course5))
         {
             Course course5 = CourseList.Single(course => course.Id == Term.Course5);
-            Course2.SelectedItem = course5;
+            Course5.SelectedItem = course5;
             StartDateCourse5.Text = course5.StartDate.ToShortDateString();
             EndDateCourse5.Text = course5.EndDate.ToShortDateString();
             ViewDetails5.BindingContext = course5.Id;

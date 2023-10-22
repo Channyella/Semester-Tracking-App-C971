@@ -18,7 +18,7 @@ namespace C971_MobileApp.Data
         AssessmentData AssessmentData;
         private SQLiteConnection conn;
         public List<Course> courseList = new List<Course>();
-        public Course defaultCourse = new Course { Id = 1, Name = "Math 1010", Description = "Beginning and Basic Algebra to help students build the fundementals of math.", Status = Status.InProgress, StartDate = DateTime.UtcNow, EndDate = DateTime.Parse("12/31/2023") };
+        public Course defaultCourse = new Course { Id = 1, Name = "Math 1010", Description = "Beginning and Basic Algebra to help students build the fundamentals of math.", Status = Status.InProgress, StartDate = DateTime.UtcNow, EndDate = DateTime.Parse("12/31/2023") };
 
         public CourseData()
         {
@@ -109,6 +109,23 @@ namespace C971_MobileApp.Data
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Delete(new Course { Id = id });
+            int[] IDsToCancel = { id + 1000, id + 2000 };
+            LocalNotificationCenter.Current.Cancel(IDsToCancel);
+            Course currentCourse = App.CourseData.GetCourseById(id);
+            if (currentCourse == null)
+            {
+                return;
+            }
+            Assessment assessmentOA = App.AssessmentData.GetAssessmentById(currentCourse.ObjectiveAssessment);
+            if (assessmentOA != null)
+            {
+                App.AssessmentData.DeleteAssessment(currentCourse.ObjectiveAssessment);
+            }
+            Assessment assessmentPA = App.AssessmentData.GetAssessmentById(currentCourse.PerformanceAssessment);
+            if (assessmentPA != null)
+            {
+                App.AssessmentData.DeleteAssessment(currentCourse.PerformanceAssessment);
+            }
         }
         public void EditCourse(Course course)
         {

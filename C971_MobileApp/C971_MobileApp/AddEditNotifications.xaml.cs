@@ -86,10 +86,20 @@ public partial class AddEditNotifications : ContentPage
             NotificationRequest startRequest = App.CourseData.SetStartNotifications(Course);
             await LocalNotificationCenter.Current.Show(startRequest);
         }
+        else
+        {
+            int[] idToCancel = { Course.Id + 1000 };
+            LocalNotificationCenter.Current.Cancel(idToCancel);
+        }
         if (EndDateToggle.IsToggled)
         {
             NotificationRequest endRequest = App.CourseData.SetEndNotifications(Course);
             await LocalNotificationCenter.Current.Show(endRequest);
+        }
+        else
+        {
+            int[] idToCancel = { Course.Id + 2000 };
+            LocalNotificationCenter.Current.Cancel(idToCancel); 
         }
         await Navigation.PopAsync();
     }
@@ -105,10 +115,20 @@ public partial class AddEditNotifications : ContentPage
             NotificationRequest startRequest = App.TermData.SetStartNotifications(Term);
             await LocalNotificationCenter.Current.Show(startRequest);
         }
+        else
+        {
+            int[] idToCancel = { Term.Id + 5000 };
+            LocalNotificationCenter.Current.Cancel(idToCancel);
+        }
         if (EndDateToggle.IsToggled)
         {
             NotificationRequest endRequest = App.TermData.SetEndNotifications(Term);
             await LocalNotificationCenter.Current.Show(endRequest);
+        }
+        else
+        {
+            int[] idToCancel = { Term.Id + 6000 };
+            LocalNotificationCenter.Current.Cancel(idToCancel);
         }
         await Navigation.PopAsync();
     }
@@ -124,15 +144,29 @@ public partial class AddEditNotifications : ContentPage
             NotificationRequest startRequest = App.AssessmentData.SetStartNotifications(Assessment);
             await LocalNotificationCenter.Current.Show(startRequest);
         }
+        else
+        {
+            int[] idToCancel = { Assessment.Id + 3000 };
+            LocalNotificationCenter.Current.Cancel(idToCancel);
+        }
         if (EndDateToggle.IsToggled)
         {
             NotificationRequest endRequest = App.AssessmentData.SetEndNotifications(Assessment);
             await LocalNotificationCenter.Current.Show(endRequest);
         }
+        else
+        {
+            int[] idToCancel = { Assessment.Id + 4000 };
+            LocalNotificationCenter.Current.Cancel(idToCancel);
+        }
         await Navigation.PopAsync();
     }
-    public void SetNotifications(object sender, EventArgs e)
+    public async void SetNotifications(object sender, EventArgs e)
     {
+        if (!(await LocalNotificationCenter.Current.AreNotificationsEnabled()))
+        {
+            await LocalNotificationCenter.Current.RequestNotificationPermission();
+        }
         if (Course != null)
         { 
            SetCourseNotifications();

@@ -85,9 +85,17 @@ public partial class Terms : ContentPage
     {
         IReadOnlyList<IVisualTreeElement> allDescendantsOfTermCollection = TermCollection.GetVisualTreeDescendants();
         IEnumerable<Switch> termSwitches = allDescendantsOfTermCollection.OfType<Switch>();
+        HashSet<int> visitedTerms = new();
         foreach (Switch termSwitch in termSwitches) {
             Term term = (Term)termSwitch.BindingContext;
+            if(visitedTerms.Contains(term.Id))
+            {
+                // the first toggle in each set of terms is the "active" switch
+                // continue if we hit the notification switches
+                continue;
+            }
             termSwitch.IsToggled = term.Active;
+            visitedTerms.Add(term.Id);
         }
     }
 }

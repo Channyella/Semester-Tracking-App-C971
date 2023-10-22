@@ -70,11 +70,11 @@ public partial class CoursePage : ContentPage
     }
     public void ShareCourseNotes(object sender, EventArgs e)
     {
-        DisplayAlert("Saved Notes", "Notes have been saved.","OK");
         Share.Default.RequestAsync(new ShareTextRequest(Notes.Text, "Share Course Notes"));
     }
     public void SaveNotes(object sender, EventArgs e)
     {
+        DisplayAlert("Saved Notes", "Notes have been saved.", "OK");
         Course.CourseNotes = Notes.Text;
         App.CourseData.EditCourse(Course);
     }

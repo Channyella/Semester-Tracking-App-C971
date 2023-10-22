@@ -103,6 +103,8 @@ namespace C971_MobileApp.Data
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Delete(new Term { Id = id });
+            int[] IDsToCancel = { id + 5000, id + 6000 };
+            LocalNotificationCenter.Current.Cancel(IDsToCancel);
         }
         public void EditTerm(Term term)
         {

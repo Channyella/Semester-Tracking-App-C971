@@ -81,6 +81,8 @@ namespace C971_MobileApp.Data
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Delete(new Assessment { Id = id });
+            int[] IDsToCancel = { id + 3000, id + 4000 };
+            LocalNotificationCenter.Current.Cancel(IDsToCancel);
         }
         public void EditAssessment(Assessment assessment)
         {

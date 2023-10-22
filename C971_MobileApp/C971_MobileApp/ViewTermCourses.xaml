@@ -404,7 +404,7 @@
                     x:Name="SetCourse6"
                     Grid.Column="3"
                     Grid.Row="15"
-                    Clicked="SetCourse1Btn"
+                    Clicked="SetCourse6Btn"
                     FontSize="Medium"/>
                 <Entry x:Name="StartDateCourse6"
                        Margin="20,0,0,0"

@@ -61,7 +61,7 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         FontSize="Medium"/>
-            <Label Text="Active Course: "
+            <Label Text="Active Term: "
                    FontSize="Medium"
                    Grid.Column="0"
                    Grid.Row="4"
