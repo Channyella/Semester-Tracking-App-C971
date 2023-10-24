@@ -20,6 +20,11 @@ public partial class ViewTermCourses : ContentPage
 	public void ViewCourse(object sender, EventArgs e)
 	{
 		Button button = (Button)sender;
+        if (button.BindingContext.GetType() != typeof(int) || !CourseList.Any(course => course.Id == (int)button.BindingContext))
+        {
+            DisplayAlert("Invalid", "No course set. Please set course first.", "OK");
+            return;
+        }
 		int buttonId = (int)button.BindingContext;
 		Navigation.PushAsync(new CoursePage(buttonId));
 	}
@@ -125,15 +130,25 @@ public partial class ViewTermCourses : ContentPage
     public void EditCourse(object sender, EventArgs e)
     {
         ImageButton button = (ImageButton)sender;
+        if (button.BindingContext.GetType() != typeof(int) || !CourseList.Any(course => course.Id == (int)button.BindingContext))
+        {
+            DisplayAlert("Invalid", "No course set. Please set course first.", "OK");
+            return;
+        }
         int buttonId = (int)button.BindingContext;
         Navigation.PushAsync(new EditCourse(buttonId));
     }
     public async void DeleteCourse(object sender, EventArgs e)
     {
+        ImageButton button = (ImageButton)sender;
+        if (button.BindingContext.GetType() != typeof(int) || !CourseList.Any(course => course.Id == (int)button.BindingContext))
+        {
+            await DisplayAlert("Invalid", "No course set. Please set course first.", "OK");
+            return;
+        }
         bool changeCourse = await DisplayAlert("Deleting Course", "Are you sure you want to delete this course?", "Yes", "No");
         if (changeCourse) 
         { 
-        ImageButton button = (ImageButton)sender;
             if (button.BindingContext.GetType() != typeof(int))
             {
                 await DisplayAlert("Invalid", "No class is set to remove.", "OK");

@@ -79,7 +79,7 @@ public partial class NewCourse : ContentPage
             Description = Description.Text,
             StartDate = StartDate.Date,
             EndDate = EndDate.Date,
-            InstructorId = this.InstructorId,
+            InstructorId = ((Instructor)InstructorName.SelectedItem).Id,
             Status = Course.GetStatusFromName(StatusPicker.Items[StatusPicker.SelectedIndex])
         }) ;
         await Navigation.PopAsync();

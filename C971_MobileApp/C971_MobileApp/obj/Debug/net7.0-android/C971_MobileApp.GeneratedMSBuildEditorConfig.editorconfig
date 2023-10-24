@@ -1,0 +1,129 @@
+is_global = true
+build_property.TargetFramework = net7.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = C971_MobileApp
+build_property.ProjectDir = C:\Users\admin\Desktop\WGU\C971\C971_MobileApp\C971_MobileApp\
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddEditAssessment.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddEditAssessment.xaml
+build_metadata.AdditionalFiles.TargetPath = AddEditAssessment.xaml
+build_metadata.AdditionalFiles.RelativePath = AddEditAssessment.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddEditNotifications.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddEditNotifications.xaml
+build_metadata.AdditionalFiles.TargetPath = AddEditNotifications.xaml
+build_metadata.AdditionalFiles.RelativePath = AddEditNotifications.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddInstructor.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddInstructor.xaml
+build_metadata.AdditionalFiles.TargetPath = AddInstructor.xaml
+build_metadata.AdditionalFiles.RelativePath = AddInstructor.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AddTerm.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AddTerm.xaml
+build_metadata.AdditionalFiles.TargetPath = AddTerm.xaml
+build_metadata.AdditionalFiles.RelativePath = AddTerm.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/CoursePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.CoursePage.xaml
+build_metadata.AdditionalFiles.TargetPath = CoursePage.xaml
+build_metadata.AdditionalFiles.RelativePath = CoursePage.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/EditCourse.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.EditCourse.xaml
+build_metadata.AdditionalFiles.TargetPath = EditCourse.xaml
+build_metadata.AdditionalFiles.RelativePath = EditCourse.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/EditInstructor.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.EditInstructor.xaml
+build_metadata.AdditionalFiles.TargetPath = EditInstructor.xaml
+build_metadata.AdditionalFiles.RelativePath = EditInstructor.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/EditTerm.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.EditTerm.xaml
+build_metadata.AdditionalFiles.TargetPath = EditTerm.xaml
+build_metadata.AdditionalFiles.RelativePath = EditTerm.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/Instructors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Instructors.xaml
+build_metadata.AdditionalFiles.TargetPath = Instructors.xaml
+build_metadata.AdditionalFiles.RelativePath = Instructors.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/NewCourse.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.NewCourse.xaml
+build_metadata.AdditionalFiles.TargetPath = NewCourse.xaml
+build_metadata.AdditionalFiles.RelativePath = NewCourse.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/Settings.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Settings.xaml
+build_metadata.AdditionalFiles.TargetPath = Settings.xaml
+build_metadata.AdditionalFiles.RelativePath = Settings.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/Terms.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.Terms.xaml
+build_metadata.AdditionalFiles.TargetPath = Terms.xaml
+build_metadata.AdditionalFiles.RelativePath = Terms.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/ViewInstructorCourses.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.ViewInstructorCourses.xaml
+build_metadata.AdditionalFiles.TargetPath = ViewInstructorCourses.xaml
+build_metadata.AdditionalFiles.RelativePath = ViewInstructorCourses.xaml
+
+[C:/Users/admin/Desktop/WGU/C971/C971_MobileApp/C971_MobileApp/ViewTermCourses.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = C971_MobileApp.ViewTermCourses.xaml
+build_metadata.AdditionalFiles.TargetPath = ViewTermCourses.xaml
+build_metadata.AdditionalFiles.RelativePath = ViewTermCourses.xaml
