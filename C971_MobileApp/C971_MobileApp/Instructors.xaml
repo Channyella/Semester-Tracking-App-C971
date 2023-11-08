@@ -6,7 +6,8 @@
              Title="Instructors"
              BindingContext="{x:Reference InstructorsXaml}">
 
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
         <CollectionView
             x:Name="InstructorCollection"
             ItemsSource="{Binding InstructorData}"
@@ -89,13 +90,13 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Add Instructor"
+            <Button Text="Add Instructor"
                 x:Name="addButton"
                 WidthRequest="175"
                 HorizontalOptions="Start"
                 Margin="10"
                 FontSize="Medium"
                 Clicked="AddInstructor"/>
-
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

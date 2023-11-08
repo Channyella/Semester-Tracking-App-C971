@@ -5,8 +5,8 @@
              Title="Degree Plan"
              x:Name="TermsXaml"
              BindingContext="{x:Reference TermsXaml}">
-    
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
         <CollectionView
             x:Name="TermCollection"
             ItemsSource="{Binding TermData}"
@@ -150,4 +150,5 @@
                 HeightRequest="45"
                 HorizontalOptions="Center"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
