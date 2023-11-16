@@ -57,8 +57,10 @@ public partial class EditCourse : ContentPage
 			Description = Description.Text,
 			StartDate = StartDate.Date,
 			EndDate = EndDate.Date,
-			InstructorId = Course.InstructorId,
-            Status = Course.GetStatusFromName(StatusPicker.Items[StatusPicker.SelectedIndex])
+			InstructorId = ((Instructor)InstructorName.SelectedItem).Id,
+            Status = Course.GetStatusFromName(StatusPicker.Items[StatusPicker.SelectedIndex]),
+            PerformanceAssessment = Course.PerformanceAssessment,
+            ObjectiveAssessment = Course.ObjectiveAssessment,            
         });
 		await Navigation.PopAsync();
 	}

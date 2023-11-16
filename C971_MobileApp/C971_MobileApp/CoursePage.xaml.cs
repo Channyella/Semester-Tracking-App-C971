@@ -16,20 +16,6 @@ public partial class CoursePage : ContentPage
 	{
 		CourseId = courseId;
 		InitializeComponent();
-        Course = App.CourseData.GetCourseById(courseId);
-        Name.Text = Course.Name;
-        Description.Text = Course.Description;
-        StartDate.Date = Course.StartDate;
-        EndDate.Date = Course.EndDate;
-        Instructor instructor = App.InstructorData.GetInstructorById(Course.InstructorId);
-        InstructorName.Text = instructor.Name;
-        InstructorEmail.Text = instructor.Email;
-        InstructorPhoneNumber.Text = instructor.PhoneNumber;
-        CourseStatus.Text = Course.GetStatusName(Course.Status);
-        EditCourseBtn.BindingContext = Course.Id;
-        Notes.Text = Course.CourseNotes;
-        StartDateNotifications.IsToggled = Course.StartDateNotifications;
-        EndDateNotifications.IsToggled = Course.EndDateNotifications;
         RefreshAssessments();
 
     }
@@ -142,6 +128,20 @@ public partial class CoursePage : ContentPage
     }
     private void RefreshAssessments()
     {
+        Course = App.CourseData.GetCourseById(CourseId);
+        Name.Text = Course.Name;
+        Description.Text = Course.Description;
+        StartDate.Date = Course.StartDate;
+        EndDate.Date = Course.EndDate;
+        Instructor instructor = App.InstructorData.GetInstructorById(Course.InstructorId);
+        InstructorName.Text = instructor.Name;
+        InstructorEmail.Text = instructor.Email;
+        InstructorPhoneNumber.Text = instructor.PhoneNumber;
+        CourseStatus.Text = Course.GetStatusName(Course.Status);
+        EditCourseBtn.BindingContext = Course.Id;
+        Notes.Text = Course.CourseNotes;
+        StartDateNotifications.IsToggled = Course.StartDateNotifications;
+        EndDateNotifications.IsToggled = Course.EndDateNotifications;
         List<Assessment> assessmentList = App.AssessmentData.GetAllAssessments();
         if (assessmentList.Any(assessment => assessment.Id == Course.ObjectiveAssessment))
         {
